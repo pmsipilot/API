@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <title>API publiques de la suite logicielle PMSIpilot</title>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/base.css">
+</head>
+<body>
+  <div class="topbar">
+    <div class="fill">
+      <div class="container">
+        <a class="brand" href="#">API PMSIpilot</a>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div id="breadcrumbs">
+      <div class="breadcrumb">
+        <a href="/">API PMSIpilot</a> → <a href="#">Identites</a>
+      </div>
+    </div><!-- end #breadcrumbs -->
+    <div class="content row">
+      <div class="span12">
+        <h1 id="title">GET api/identites</h1>
+        <p>Retourne les identités.<br />
+Chaque identité contient ses propres informations ainsi que l'ensemble des séjours associés.
+Chaque séjour associé contient ses propres informations ainsi que l'ensemble des mouvements associés.
+D'autres API sont disponibles pour accéder directement aux <a href="sejours.html">séjours</a> ou aux <a href="mouvements.html">mouvements</a>.</p>
+        <h2>Exemple d'appel :</h2>
+        <pre><strong>GET</strong> api/identites</pre>
+        <table class="parameters-table">
+          <caption>
+            <strong>Paramètres :</strong><p>Tous les paramètres sont optionnels.</p>
+          </caption>
+          <tbody>
+                        <tr>
+              <td class="parameters-field-title">from <span>optionnel</span></td>
+              <td class="parameters-field-body">
+                <p>Borne inférieur de récupération des données.</p>
+<p><strong>format</strong>: <code>token</code> ou <code>{champ: valeur}</code></p>
+<p><em>Les champs disponibles <code>DateNaissance</code>, <code>CreatedAt</code> et <code>UpdatedAt</code></em></p>
+<p><strong>exemple de token </strong>: <code>1826</code></p>
+<p><strong>exemple de champs </strong>: <code>{"DateNaissance":"2011-05-25"}</code></p>
+              </td>
+            </tr>            <tr>
+              <td class="parameters-field-title">until <span>optionnel</span></td>
+              <td class="parameters-field-body">
+                <p>Borne supérieur de récupération des données.</p>
+<p><strong>format</strong>: <code>token</code> ou <code>{champ: valeur}</code></p>
+<p><em>Les champs disponibles <code>DateNaissance</code>, <code>CreatedAt</code> et <code>UpdatedAt</code></em></p>
+<p><strong>exemple de token </strong>: <code>1826</code></p>
+<p><strong>exemple de champs </strong>: <code>{"DateNaissance":"2011-05-25"}</code></p>
+              </td>
+            </tr>            <tr>
+              <td class="parameters-field-title">only <span>optionnel</span></td>
+              <td class="parameters-field-body">
+                <p>Permet de sélectionner uniquement certains champs. Si ce paramètre n'est pas présent tous les champs sont retournés. Le caractère <code>*</code> peut être utilisé pour retourner tous les champs.</p>
+<p><strong>exemple de valeur</strong>: 2011-05-25</p>
+<p>Liste des champs disponibles pour l'identité :
+  <ul>
+    <li><code>*</code></li>
+    <li><code>LastMessageId</code></li>
+    <li><code>LastMessageId</code></li>
+    <li><code>Ipp</code></li>
+    <li><code>NomUsage</code></li>
+    <li><code>NomNaissance</code></li>
+    <li><code>NomNaissanceMere</code></li>
+    <li><code>Sexe</code></li>
+    <li><code>RangGemellaire</code></li>
+    <li><code>DateNaissance</code></li>
+    <li><code>NbSemaineGestation</code></li>
+    <li><code>Adresse1</code></li>
+    <li><code>Adresse2</code></li>
+    <li><code>Commune</code></li>
+    <li><code>CodePostal</code></li>
+    <li><code>Cedex</code></li>
+    <li><code>Pays</code></li>
+    <li><code>TelephoneDomicile</code></li>
+    <li><code>TelephonePortable</code></li>
+    <li><code>TelephonePro</code></li>
+  </ul>
+</p>
+<p>Liste des champs disponibles pour le séjour :
+  <ul>
+    <li><code>*</code></li>
+    <li><code>IdentiteId</code></li>
+    <li><code>LastMessageId</code></li>
+    <li><code>TypeAdmission</code></li>
+    <li><code>CirconstanceSortie</code></li>
+    <li><code>ModeTransportEntree</code></li>
+    <li><code>ModeTransportSortie</code></li>
+    <li><code>ModeTraitement</code></li>
+    <li><code>ModeEntree</code></li>
+    <li><code>ModeSortie</code></li>
+    <li><code>Provenance</code></li>
+    <li><code>Destination</code></li>
+    <li><code>Iep</code></li>
+    <li><code>NumeroPreadmission</code></li>
+    <li><code>DatePreadmission</code></li>
+    <li><code>Vip</code></li>
+    <li><code>EtablissementDestination</code></li>
+    <li><code>EtablissementProvenance</code></li>
+    <li><code>DateAdmission</code></li>
+    <li><code>DateHospitalisationAnterieure</code></li>
+    <li><code>DateSortie</code></li>
+  </ul>
+</p>
+<p>Liste des champs disponibles pour le mouvement :
+  <ul>
+    <li><code>*</code></li>
+    <li><code>LastMessageId</code></li>
+    <li><code>SejourId</code></li>
+    <li><code>Numero</code></li>
+    <li><code>NatureMouvement</code></li>
+    <li><code>DateMouvement</code></li>
+    <li><code>Chambre</code></li>
+    <li><code>Lit</code></li>
+    <li><code>UfHebergement</code></li>
+    <li><code>UfSoins</code></li>
+    <li><code>UfResponsabiliteMedicale</code></li>
+    <li><code>Dmt</code></li>
+    <li><code>ModeEntree</code></li>
+    <li><code>ModeSortie</code></li>
+    <li><code>Provenance</code></li>
+    <li><code>Destination</code></li>
+  </ul>
+</p>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <table class="parameters-table">
+          <caption>
+            <strong>Retour :</strong><p></p>
+          </caption>
+          <tbody>
+                        <tr>
+              <td class="parameters-field-title">token</td>
+              <td class="parameters-field-body">
+                Entier auto incrémenté permettant au client de conserver l'index du dernier appel.<br/>
+Le client peut ainsi récupérer les informations de manière incrémentale en passant cette valeur lors du prochain appel à l'API.
+              </td>
+            </tr>            <tr>
+              <td class="parameters-field-title">api</td>
+              <td class="parameters-field-body">
+                Contient l'ensemble des données demandées.
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <h2>Exemple de requête :</h2>
+        <pre><strong>GET</strong> api/identites?from=2011-05-25&only={"identite":["*"],"sejour":["Iep"]}</pre>
+        <pre class="highlight">
+{
+  token: 2,
+  datas: [{
+    fields: {
+      LastMessageId: 2,
+      Ipp: "1106000987",
+      NomUsage: null,
+      NomNaissance: "TEST",
+      Pseudonyme: null,
+      Prenom: "CLIMCO",
+      NomNaissanceMere: null,
+      Sexe: "M",
+      RangGemellaire: null,
+      DateNaissance: "1970-01-01 00:00:00",
+      NbSemaineGestation: null,
+      Adresse1: "BP 525",
+      Adresse2: null,
+      Commune: "AMBILLY",
+      CodePostal: "74100",
+      Cedex: null,
+      Pays: "100",
+      TelephoneDomicile: null,
+      TelephonePro: null,
+      TelephonePortable: null,
+      CreatedAt: "2011-12-13 15:37:10",
+      UpdatedAt: "2011-12-13 15:37:10"
+    },
+    sejours: [{
+      fields: {
+        Iep: "111060963"
+      }
+    }]
+  }]
+}</pre>
+      </div>
+      <div class="span5">
+        <div class="block-api">
+          <h2>Informations</h2>
+          <table>
+            <tbody>
+               <tr><th>Requiert une authentification ?</th><td>Non</td> </tr>
+               <tr><th>Méthode HTTP</th><td>GET</td> </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div> <!-- /container -->
+  <footer>
+
+  </footer>
+  <script type="text/javascript">window.hijs = '.highlight';</script>
+  <script type="text/javascript" src="js/hijs.js"></script>
+</body>
+</html>
