@@ -68,7 +68,7 @@ class Genapi
   <div class="topbar">
     <div class="fill">
       <div class="container">
-        <a class="brand" href="#">API PMSIpilot</a>
+        <a class="brand" href="index.html">API PMSIpilot</a>
       </div>
     </div>
   </div>
@@ -76,7 +76,7 @@ class Genapi
   <div class="container">
     <div id="breadcrumbs">
       <div class="breadcrumb">
-        <a href="/">API PMSIpilot</a>
+        <a href="index.html">API PMSIpilot</a>
       </div>
     </div><!-- end #breadcrumbs -->
     <div class="content">
@@ -172,14 +172,14 @@ EOF
   <div class="topbar">
     <div class="fill">
       <div class="container">
-        <a class="brand" href="#">API PMSIpilot</a>
+        <a class="brand" href="index.html">API PMSIpilot</a>
       </div>
     </div>
   </div>
   <div class="container">
     <div id="breadcrumbs">
       <div class="breadcrumb">
-        <a href="/">API PMSIpilot</a> → <a href="#">%s</a>
+        <a href="index.html">API PMSIpilot</a> → <a href="#">%s</a>
       </div>
     </div><!-- end #breadcrumbs -->
     <div class="content row">

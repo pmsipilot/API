@@ -15,9 +15,9 @@ $identitesMouvements_Identites = array(
   'method' => 'GET',
   'url'    => 'api/identites',
   'desc'   => <<<EOF
-Retourne les identités.<br />
-Chaque identité contient ses propres informations ainsi que l'ensemble des séjours associés.
-Chaque séjour associé contient ses propres informations ainsi que l'ensemble des mouvements associés.
+Retourne les identités.<br /><br />
+Chaque identité contient ses propres informations ainsi que l'ensemble des séjours associés.<br />
+Chaque séjour associé contient ses propres informations ainsi que l'ensemble des mouvements associés.<br />
 D'autres API sont disponibles pour accéder directement aux <a href="sejours.html">séjours</a> ou aux <a href="mouvements.html">mouvements</a>.
 EOF
   ,
