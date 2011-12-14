@@ -1,0 +1,146 @@
+/* Override some defaults */
+html, body {
+  background-color: #fff;
+  color: #555;
+}
+body {
+  padding-top: 40px; /* 40px to make the container go all the way to the bottom of the topbar */
+}
+.container > footer p {
+  text-align: center; /* center align it with the container */
+}
+.container {
+  width: 1000px; /* downsize our container to make the content feel a bit tighter and more cohesive. NOTE: this removes two full columns from the grid, meaning you only go to 14 columns and not 16. */
+}
+
+h1#title {
+  font-size: 39px;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: 300;
+  margin-bottom: 0.75em;
+}
+
+h2  {
+  margin: 4px 0 10px;
+  line-height: 1.5em;
+  font-size: 16px;
+  color: black;
+}
+
+/* The white background content wrapper */
+.content {
+  background-color: #fff;
+  -webkit-border-radius: 0 0 6px 6px;
+     -moz-border-radius: 0 0 6px 6px;
+          border-radius: 0 0 6px 6px;
+}
+
+a {
+  color: #859c4f;
+}
+a:hover, a:active {
+  color: #768a48;
+  text-decoration: underline;
+}
+
+p {
+  margin: 0 0 10px;
+}
+
+.breadcrumb {
+  background: none;
+  border-width: 0 0 1px 0;
+  border-color: #eee;
+  margin: 20px 0 30px;
+  padding: 7px 0;
+  font-size: 14px;
+}
+
+.views-table,
+.parameters-table {
+  border: 1px solid #eee;
+  border-width: 1px 0;
+}
+
+.views-table caption,
+.parameters-table caption {
+  text-align: left;
+  color: #787878;
+  margin-bottom: 0.75em;
+}
+
+.views-table caption strong,
+.parameters-table caption strong {
+  line-height: 1.5em;
+  font-size: 16px;
+  color: black;
+}
+
+.views-table tr .views-field-body,
+.views-table tr .views-field-title,
+.parameters-table tr .parameters-field-body,
+.parameters-table tr .parameters-field-title {
+  padding: 8px 0;
+  border-color: #eee;
+}
+
+.views-table tr .views-field-title,
+.parameters-table tr .parameters-field-title {
+  width: 30%;
+}
+
+.parameters-table tr .parameters-field-title {
+  font-weight: bold;
+}
+
+.parameters-table tr .parameters-field-title span {
+  font-weight: normal;
+  display: block;
+  color: #a1a1a1;
+}
+
+.views-table tbody tr:hover,
+.parameters-table tbody tr:hover {
+  background-color: #fafafa;
+}
+
+.views-table tr .views-field-body,
+.parameters-table tr .parameters-field-body {
+  color: #787878;
+}
+
+pre.highlight {
+  color: #404040;
+  font-family:  Monaco, Consolas, monospace;
+  color: white;
+  background-color: #1a1a1a;
+}
+
+pre.highlight .string { color: #8fb35f; }
+pre.highlight .class { color: #FF0C4B; }
+pre.highlight .number { color: #6f97ff; }
+pre.highlight .keyword { color: #01DBFF; }
+
+.block-api {
+  background-color: #F8F8F8;
+  padding: 10px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+}
+
+.block-api table {
+  margin: 0;
+}
+
+.block-api table tr td,
+.block-api table tr th {
+  border: 1px solid #eee;
+  border-width: 1px 0 0;
+  font-weight: normal;
+}
+
+.block-api table tr td {
+  font-weight: bold;
+}
