@@ -76,7 +76,7 @@ class Genapi
   <div class="container">
     <div id="breadcrumbs">
       <div class="breadcrumb">
-        <a href="index.html">API PMSIpilot</a>
+        <a href="index.html">Home</a> → <a href="api.html">Documentation</a>
       </div>
     </div><!-- end #breadcrumbs -->
     <div class="content">
@@ -92,7 +92,7 @@ EOF
       , $this->generateApi()
     );
 
-    file_put_contents(realpath(dirname(__FILE__) . self::OUTPUT_DIR) . '/index.html', $template);
+    file_put_contents(realpath(dirname(__FILE__) . self::OUTPUT_DIR) . '/api.html', $template);
   }
 
   private function generateApi()
@@ -144,7 +144,7 @@ EOF
         , $resource['name']
         , $resource['method']
         , $resource['url']
-        , substr($resource['desc'], 0, 300)
+        , strip_tags($resource['desc'])
       );
 
       $this->generateResource($resource);
@@ -179,7 +179,7 @@ EOF
   <div class="container">
     <div id="breadcrumbs">
       <div class="breadcrumb">
-        <a href="index.html">API PMSIpilot</a> → <a href="#">%s</a>
+        <a href="index.html">Home</a> → <a href="api.html">Documentation</a> → <a href="#">%s</a>
       </div>
     </div><!-- end #breadcrumbs -->
     <div class="content row">
