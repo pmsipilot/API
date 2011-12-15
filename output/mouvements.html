@@ -17,18 +17,17 @@
   <div class="container">
     <div id="breadcrumbs">
       <div class="breadcrumb">
-        <a href="index.html">API PMSIpilot</a> → <a href="#">Identites</a>
+        <a href="index.html">API PMSIpilot</a> → <a href="#">Mouvements</a>
       </div>
     </div><!-- end #breadcrumbs -->
     <div class="content row">
       <div class="span12">
-        <h1 id="title">GET api/identites</h1>
-        <p>Retourne les identités.<br /><br />
-Chaque identité contient ses propres informations ainsi que l'ensemble des séjours associés.<br />
-Chaque séjour associé contient ses propres informations ainsi que l'ensemble des mouvements associés.<br />
-D'autres API sont disponibles pour accéder directement aux <a href="sejours.html">séjours</a> ou aux <a href="mouvements.html">mouvements</a>.</p>
+        <h1 id="title">GET api/mouvements</h1>
+        <p>Retourne les mouvements.<br /><br />
+Chaque mouvement contient ses propres informations, celles de son séjour et celles de son patient.<br />
+D'autres API sont disponibles pour accéder directement aux <a href="identites.html">patient</a> ou aux <a href="sejours.html">sejours</a>.</p>
         <h2>Exemple d'appel :</h2>
-        <pre><strong>GET</strong> api/identites</pre>
+        <pre><strong>GET</strong> api/mouvements</pre>
         <table class="parameters-table">
           <caption>
             <strong>Paramètres :</strong><p>Tous les paramètres sont optionnels.</p>
@@ -39,46 +38,42 @@ D'autres API sont disponibles pour accéder directement aux <a href="sejours.htm
               <td class="parameters-field-body">
                 <p>Borne inférieur de récupération des données.</p>
 <p><strong>format</strong>: <code>token</code> ou <code>{champ: valeur}</code></p>
-<p><em>Les champs disponibles <code>DateNaissance</code>, <code>CreatedAt</code> et <code>UpdatedAt</code></em></p>
-<p><strong>exemple de token </strong>: <code>1826</code></p>
-<p><strong>exemple de champs </strong>: <code>{"DateNaissance":"2011-05-25"}</code></p>
+<p><em>Les champs disponibles <code>DateMouvement</code>, <code>CreatedAt</code> et <code>UpdatedAt</code></em></p>
+<p><strong>exemple de token </strong>: <code>91245</code></p>
+<p><strong>exemple de champs </strong>: <code>{"DateMouvement":"2011-05-25"}</code></p>
               </td>
             </tr>            <tr>
               <td class="parameters-field-title">until <span>optionnel</span></td>
               <td class="parameters-field-body">
                 <p>Borne supérieur de récupération des données.</p>
 <p><strong>format</strong>: <code>token</code> ou <code>{champ: valeur}</code></p>
-<p><em>Les champs disponibles <code>DateNaissance</code>, <code>CreatedAt</code> et <code>UpdatedAt</code></em></p>
-<p><strong>exemple de token </strong>: <code>1826</code></p>
-<p><strong>exemple de champs </strong>: <code>{"DateNaissance":"2011-05-25"}</code></p>
+<p><em>Les champs disponibles <code>DateMouvement</code>, <code>CreatedAt</code> et <code>UpdatedAt</code></em></p>
+<p><strong>exemple de token </strong>: <code>91245</code></p>
+<p><strong>exemple de champs </strong>: <code>{"DateMouvement":"2011-05-25"}</code></p>
               </td>
             </tr>            <tr>
               <td class="parameters-field-title">only <span>optionnel</span></td>
               <td class="parameters-field-body">
                 <p>Permet de sélectionner uniquement certains champs. Si ce paramètre n'est pas présent tous les champs sont retournés. Le caractère <code>*</code> peut être utilisé pour retourner tous les champs.</p>
 <p><strong>exemple de valeur</strong>: 2011-05-25</p>
-<p>Liste des champs disponibles pour l'identité :
+<p>Liste des champs disponibles pour le mouvement :
   <ul>
     <li><code>*</code></li>
     <li><code>LastMessageId</code></li>
-    <li><code>LastMessageId</code></li>
-    <li><code>Ipp</code></li>
-    <li><code>NomUsage</code></li>
-    <li><code>NomNaissance</code></li>
-    <li><code>NomNaissanceMere</code></li>
-    <li><code>Sexe</code></li>
-    <li><code>RangGemellaire</code></li>
-    <li><code>DateNaissance</code></li>
-    <li><code>NbSemaineGestation</code></li>
-    <li><code>Adresse1</code></li>
-    <li><code>Adresse2</code></li>
-    <li><code>Commune</code></li>
-    <li><code>CodePostal</code></li>
-    <li><code>Cedex</code></li>
-    <li><code>Pays</code></li>
-    <li><code>TelephoneDomicile</code></li>
-    <li><code>TelephonePortable</code></li>
-    <li><code>TelephonePro</code></li>
+    <li><code>SejourId</code></li>
+    <li><code>Numero</code></li>
+    <li><code>NatureMouvement</code></li>
+    <li><code>DateMouvement</code></li>
+    <li><code>Chambre</code></li>
+    <li><code>Lit</code></li>
+    <li><code>UfHebergement</code></li>
+    <li><code>UfSoins</code></li>
+    <li><code>UfResponsabiliteMedicale</code></li>
+    <li><code>Dmt</code></li>
+    <li><code>ModeEntree</code></li>
+    <li><code>ModeSortie</code></li>
+    <li><code>Provenance</code></li>
+    <li><code>Destination</code></li>
   </ul>
 </p>
 <p>Liste des champs disponibles pour le séjour :
@@ -106,24 +101,28 @@ D'autres API sont disponibles pour accéder directement aux <a href="sejours.htm
     <li><code>DateSortie</code></li>
   </ul>
 </p>
-<p>Liste des champs disponibles pour le mouvement :
+<p>Liste des champs disponibles pour l'identité :
   <ul>
     <li><code>*</code></li>
     <li><code>LastMessageId</code></li>
-    <li><code>SejourId</code></li>
-    <li><code>Numero</code></li>
-    <li><code>NatureMouvement</code></li>
-    <li><code>DateMouvement</code></li>
-    <li><code>Chambre</code></li>
-    <li><code>Lit</code></li>
-    <li><code>UfHebergement</code></li>
-    <li><code>UfSoins</code></li>
-    <li><code>UfResponsabiliteMedicale</code></li>
-    <li><code>Dmt</code></li>
-    <li><code>ModeEntree</code></li>
-    <li><code>ModeSortie</code></li>
-    <li><code>Provenance</code></li>
-    <li><code>Destination</code></li>
+    <li><code>LastMessageId</code></li>
+    <li><code>Ipp</code></li>
+    <li><code>NomUsage</code></li>
+    <li><code>NomNaissance</code></li>
+    <li><code>NomNaissanceMere</code></li>
+    <li><code>Sexe</code></li>
+    <li><code>RangGemellaire</code></li>
+    <li><code>DateNaissance</code></li>
+    <li><code>NbSemaineGestation</code></li>
+    <li><code>Adresse1</code></li>
+    <li><code>Adresse2</code></li>
+    <li><code>Commune</code></li>
+    <li><code>CodePostal</code></li>
+    <li><code>Cedex</code></li>
+    <li><code>Pays</code></li>
+    <li><code>TelephoneDomicile</code></li>
+    <li><code>TelephonePortable</code></li>
+    <li><code>TelephonePro</code></li>
   </ul>
 </p>
               </td>
@@ -150,40 +149,33 @@ Le client peut ainsi récupérer les informations de manière incrémentale en p
           </tbody>
         </table>
         <h2>Exemple de requête :</h2>
-        <pre><strong>GET</strong> api/identites?from=2011-05-25&only={"identite":["*"],"sejour":["Iep"]}</pre>
+        <pre><strong>GET</strong> api/mouvements?only={"mouvement":["DateMouvement","UfHebergement"],"sejour":["Iep"],"identite":["Ipp"]}</pre>
         <pre class="highlight">
 {
-  token: 2,
+  token: 9,
   datas: [{
     fields: {
-      LastMessageId: 2,
-      Ipp: "1106000987",
-      NomUsage: null,
-      NomNaissance: "TEST",
-      Pseudonyme: null,
-      Prenom: "CLIMCO",
-      NomNaissanceMere: null,
-      Sexe: "M",
-      RangGemellaire: null,
-      DateNaissance: "1970-01-01 00:00:00",
-      NbSemaineGestation: null,
-      Adresse1: "BP 525",
-      Adresse2: null,
-      Commune: "AMBILLY",
-      CodePostal: "74100",
-      Cedex: null,
-      Pays: "100",
-      TelephoneDomicile: null,
-      TelephonePro: null,
-      TelephonePortable: null,
-      CreatedAt: "2011-12-13 15:37:10",
-      UpdatedAt: "2011-12-13 15:37:10"
+      DateMouvement: "2011-06-17 10:29:00",
+      UfHebergement: "DIGE"
     },
-    sejours: [{
-      fields: {
-        Iep: "111060963"
-      }
-    }]
+    sejour: {
+      Iep: "111060963"
+    },
+    identite: {
+      Ipp: "1106000987"
+    }
+  },
+  {
+    fields: {
+      DateMouvement: "2011-06-17 10:30:00",
+      UfHebergement: "CARD"
+    },
+    sejour: {
+      Iep: "111060963"
+    },
+    identite: {
+      Ipp: "1106000987"
+    }
   }]
 }</pre>
       </div>

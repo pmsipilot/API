@@ -5,8 +5,8 @@
  *******************************************/
 
 $identitesMouvements = array(
-  'name' => 'Identités Mouvements',
-  'desc' => 'Connecteur Identiés/Mouvements et Actes.',
+  'name' => 'Identités/Mouvements',
+  'desc' => 'Informations en temps-réel sur les identités, séjours et mouvements de l\'établissement',
   'resources' => array()
 );
 
@@ -186,9 +186,359 @@ EOF
   )
 );
 
+$identitesMouvements_Sejours = array(
+  'name'   => 'sejours',
+  'method' => 'GET',
+  'url'    => 'api/sejours',
+  'desc'   => <<<EOF
+Retourne les séjours.<br /><br />
+Chaque séjour contient ses propres informations, celles de l'ensemble des mouvements associés et celles de son patient.<br />
+D'autres API sont disponibles pour accéder directement aux <a href="identites.html">patient</a> ou aux <a href="mouvements.html">mouvements</a>.
+EOF
+  ,
+  'secure'     => false,
+  'exemple'    => 'api/sejours',
+  'parameters' => array(
+    'caption' => 'Tous les paramètres sont optionnels.',
+    'rows'    => array(
+      array(
+        'name'      => 'from',
+        'mandatory' => false,
+        'desc'      => <<<EOF
+<p>Borne inférieur de récupération des données.</p>
+<p><strong>format</strong>: <code>token</code> ou <code>{champ: valeur}</code></p>
+<p><em>Les champs disponibles <code>DateAdmission</code>, <code>DateSortie</code>, <code>CreatedAt</code> et <code>UpdatedAt</code></em></p>
+<p><strong>exemple de token </strong>: <code>5421</code></p>
+<p><strong>exemple de champs </strong>: <code>{"DateEntree":"2011-05-25"}</code></p>
+EOF
+      ),
+      array(
+        'name'        => 'until',
+        'mandatory'   => false,
+        'desc' => <<<EOF
+<p>Borne supérieur de récupération des données.</p>
+<p><strong>format</strong>: <code>token</code> ou <code>{champ: valeur}</code></p>
+<p><em>Les champs disponibles <code>DateAdmission</code>, <code>DateSortie</code>, <code>CreatedAt</code> et <code>UpdatedAt</code></em></p>
+<p><strong>exemple de token </strong>: <code>5421</code></p>
+<p><strong>exemple de champs </strong>: <code>{"DateEntree":"2011-05-25"}</code></p>
+EOF
+      ),
+      array(
+        'name'        => 'only',
+        'mandatory'   => false,
+        'desc' => <<<EOF
+<p>Permet de sélectionner uniquement certains champs. Si ce paramètre n'est pas présent tous les champs sont retournés. Le caractère <code>*</code> peut être utilisé pour retourner tous les champs.</p>
+<p><strong>exemple de valeur</strong>: 2011-05-25</p>
+<p>Liste des champs disponibles pour le séjour :
+  <ul>
+    <li><code>*</code></li>
+    <li><code>IdentiteId</code></li>
+    <li><code>LastMessageId</code></li>
+    <li><code>TypeAdmission</code></li>
+    <li><code>CirconstanceSortie</code></li>
+    <li><code>ModeTransportEntree</code></li>
+    <li><code>ModeTransportSortie</code></li>
+    <li><code>ModeTraitement</code></li>
+    <li><code>ModeEntree</code></li>
+    <li><code>ModeSortie</code></li>
+    <li><code>Provenance</code></li>
+    <li><code>Destination</code></li>
+    <li><code>Iep</code></li>
+    <li><code>NumeroPreadmission</code></li>
+    <li><code>DatePreadmission</code></li>
+    <li><code>Vip</code></li>
+    <li><code>EtablissementDestination</code></li>
+    <li><code>EtablissementProvenance</code></li>
+    <li><code>DateAdmission</code></li>
+    <li><code>DateHospitalisationAnterieure</code></li>
+    <li><code>DateSortie</code></li>
+  </ul>
+</p>
+<p>Liste des champs disponibles pour le mouvement :
+  <ul>
+    <li><code>*</code></li>
+    <li><code>LastMessageId</code></li>
+    <li><code>SejourId</code></li>
+    <li><code>Numero</code></li>
+    <li><code>NatureMouvement</code></li>
+    <li><code>DateMouvement</code></li>
+    <li><code>Chambre</code></li>
+    <li><code>Lit</code></li>
+    <li><code>UfHebergement</code></li>
+    <li><code>UfSoins</code></li>
+    <li><code>UfResponsabiliteMedicale</code></li>
+    <li><code>Dmt</code></li>
+    <li><code>ModeEntree</code></li>
+    <li><code>ModeSortie</code></li>
+    <li><code>Provenance</code></li>
+    <li><code>Destination</code></li>
+  </ul>
+</p>
+<p>Liste des champs disponibles pour l'identité :
+  <ul>
+    <li><code>*</code></li>
+    <li><code>LastMessageId</code></li>
+    <li><code>LastMessageId</code></li>
+    <li><code>Ipp</code></li>
+    <li><code>NomUsage</code></li>
+    <li><code>NomNaissance</code></li>
+    <li><code>NomNaissanceMere</code></li>
+    <li><code>Sexe</code></li>
+    <li><code>RangGemellaire</code></li>
+    <li><code>DateNaissance</code></li>
+    <li><code>NbSemaineGestation</code></li>
+    <li><code>Adresse1</code></li>
+    <li><code>Adresse2</code></li>
+    <li><code>Commune</code></li>
+    <li><code>CodePostal</code></li>
+    <li><code>Cedex</code></li>
+    <li><code>Pays</code></li>
+    <li><code>TelephoneDomicile</code></li>
+    <li><code>TelephonePortable</code></li>
+    <li><code>TelephonePro</code></li>
+  </ul>
+</p>
+EOF
+      )
+    )
+  ),
+  'returns' => array(
+    'caption' => '',
+    'rows'    => array(
+      array(
+        'name'        => 'token',
+        'desc' => <<<EOF
+Entier auto incrémenté permettant au client de conserver l'index du dernier appel.<br/>
+Le client peut ainsi récupérer les informations de manière incrémentale en passant cette valeur lors du prochain appel à l'API.
+EOF
+      ),
+      array(
+        'name'        => 'api',
+        'desc' => <<<EOF
+Contient l'ensemble des données demandées.
+EOF
+      )
+    )
+  ),
+  'query' => array(
+    'url'    => 'api/sejours?from={"DateAdmission":"2011-06-17"}&only={"sejour":["*"],"mouvement":["DateMouvement","UfHebergement"]}',
+    'value'  => <<<EOF
+{
+  token: 10,
+  datas: [{
+    fields: {
+      IdentiteId: 1,
+      LastMessageId: 10,
+      TypeAdmission: "R",
+      CirconstanceSortie: null,
+      ModeTransportEntree: null,
+      ModeTransportSortie: null,
+      ModeTraitement: null,
+      ModeEntree: "91",
+      ModeSortie: "3",
+      Provenance: null,
+      Destination: null,
+      Iep: "111060963",
+      NumeroPreadmission: "111060963",
+      DatePreadmission: "2011-06-17 10:30:00",
+      Vip: "F",
+      EtablissementDestination: null,
+      EtablissementProvenance: null,
+      DateAdmission: "2011-06-17 10:29:00",
+      DateHospitalisationAnterieure: null,
+      DateSortie: "2011-06-17 10:31:00",
+      CreatedAt: "2011-12-13 15:37:10",
+      UpdatedAt: "2011-12-13 15:37:11"
+    },
+    mouvements: [
+    {
+      DateMouvement: "2011-06-17 10:29:00",
+      UfHebergement: "DIGE"
+    },
+    {
+      DateMouvement: "2011-06-17 10:30:00",
+      UfHebergement: "CARD"
+    }]
+  }]
+}
+EOF
+  )
+);
+
+
+$identitesMouvements_Mouvements = array(
+  'name'   => 'mouvements',
+  'method' => 'GET',
+  'url'    => 'api/mouvements',
+  'desc'   => <<<EOF
+Retourne les mouvements.<br /><br />
+Chaque mouvement contient ses propres informations, celles de son séjour et celles de son patient.<br />
+D'autres API sont disponibles pour accéder directement aux <a href="identites.html">patient</a> ou aux <a href="sejours.html">sejours</a>.
+EOF
+  ,
+  'secure'     => false,
+  'exemple'    => 'api/mouvements',
+  'parameters' => array(
+    'caption' => 'Tous les paramètres sont optionnels.',
+    'rows'    => array(
+      array(
+        'name'      => 'from',
+        'mandatory' => false,
+        'desc'      => <<<EOF
+<p>Borne inférieur de récupération des données.</p>
+<p><strong>format</strong>: <code>token</code> ou <code>{champ: valeur}</code></p>
+<p><em>Les champs disponibles <code>DateMouvement</code>, <code>CreatedAt</code> et <code>UpdatedAt</code></em></p>
+<p><strong>exemple de token </strong>: <code>91245</code></p>
+<p><strong>exemple de champs </strong>: <code>{"DateMouvement":"2011-05-25"}</code></p>
+EOF
+      ),
+      array(
+        'name'        => 'until',
+        'mandatory'   => false,
+        'desc' => <<<EOF
+<p>Borne supérieur de récupération des données.</p>
+<p><strong>format</strong>: <code>token</code> ou <code>{champ: valeur}</code></p>
+<p><em>Les champs disponibles <code>DateMouvement</code>, <code>CreatedAt</code> et <code>UpdatedAt</code></em></p>
+<p><strong>exemple de token </strong>: <code>91245</code></p>
+<p><strong>exemple de champs </strong>: <code>{"DateMouvement":"2011-05-25"}</code></p>
+EOF
+      ),
+      array(
+        'name'        => 'only',
+        'mandatory'   => false,
+        'desc' => <<<EOF
+<p>Permet de sélectionner uniquement certains champs. Si ce paramètre n'est pas présent tous les champs sont retournés. Le caractère <code>*</code> peut être utilisé pour retourner tous les champs.</p>
+<p><strong>exemple de valeur</strong>: 2011-05-25</p>
+<p>Liste des champs disponibles pour le mouvement :
+  <ul>
+    <li><code>*</code></li>
+    <li><code>LastMessageId</code></li>
+    <li><code>SejourId</code></li>
+    <li><code>Numero</code></li>
+    <li><code>NatureMouvement</code></li>
+    <li><code>DateMouvement</code></li>
+    <li><code>Chambre</code></li>
+    <li><code>Lit</code></li>
+    <li><code>UfHebergement</code></li>
+    <li><code>UfSoins</code></li>
+    <li><code>UfResponsabiliteMedicale</code></li>
+    <li><code>Dmt</code></li>
+    <li><code>ModeEntree</code></li>
+    <li><code>ModeSortie</code></li>
+    <li><code>Provenance</code></li>
+    <li><code>Destination</code></li>
+  </ul>
+</p>
+<p>Liste des champs disponibles pour le séjour :
+  <ul>
+    <li><code>*</code></li>
+    <li><code>IdentiteId</code></li>
+    <li><code>LastMessageId</code></li>
+    <li><code>TypeAdmission</code></li>
+    <li><code>CirconstanceSortie</code></li>
+    <li><code>ModeTransportEntree</code></li>
+    <li><code>ModeTransportSortie</code></li>
+    <li><code>ModeTraitement</code></li>
+    <li><code>ModeEntree</code></li>
+    <li><code>ModeSortie</code></li>
+    <li><code>Provenance</code></li>
+    <li><code>Destination</code></li>
+    <li><code>Iep</code></li>
+    <li><code>NumeroPreadmission</code></li>
+    <li><code>DatePreadmission</code></li>
+    <li><code>Vip</code></li>
+    <li><code>EtablissementDestination</code></li>
+    <li><code>EtablissementProvenance</code></li>
+    <li><code>DateAdmission</code></li>
+    <li><code>DateHospitalisationAnterieure</code></li>
+    <li><code>DateSortie</code></li>
+  </ul>
+</p>
+<p>Liste des champs disponibles pour l'identité :
+  <ul>
+    <li><code>*</code></li>
+    <li><code>LastMessageId</code></li>
+    <li><code>LastMessageId</code></li>
+    <li><code>Ipp</code></li>
+    <li><code>NomUsage</code></li>
+    <li><code>NomNaissance</code></li>
+    <li><code>NomNaissanceMere</code></li>
+    <li><code>Sexe</code></li>
+    <li><code>RangGemellaire</code></li>
+    <li><code>DateNaissance</code></li>
+    <li><code>NbSemaineGestation</code></li>
+    <li><code>Adresse1</code></li>
+    <li><code>Adresse2</code></li>
+    <li><code>Commune</code></li>
+    <li><code>CodePostal</code></li>
+    <li><code>Cedex</code></li>
+    <li><code>Pays</code></li>
+    <li><code>TelephoneDomicile</code></li>
+    <li><code>TelephonePortable</code></li>
+    <li><code>TelephonePro</code></li>
+  </ul>
+</p>
+EOF
+      )
+    )
+  ),
+  'returns' => array(
+    'caption' => '',
+    'rows'    => array(
+      array(
+        'name'        => 'token',
+        'desc' => <<<EOF
+Entier auto incrémenté permettant au client de conserver l'index du dernier appel.<br/>
+Le client peut ainsi récupérer les informations de manière incrémentale en passant cette valeur lors du prochain appel à l'API.
+EOF
+      ),
+      array(
+        'name'        => 'api',
+        'desc' => <<<EOF
+Contient l'ensemble des données demandées.
+EOF
+      )
+    )
+  ),
+  'query' => array(
+    'url'    => 'api/mouvements?only={"mouvement":["DateMouvement","UfHebergement"],"sejour":["Iep"],"identite":["Ipp"]}',
+    'value'  => <<<EOF
+{
+  token: 9,
+  datas: [{
+    fields: {
+      DateMouvement: "2011-06-17 10:29:00",
+      UfHebergement: "DIGE"
+    },
+    sejour: {
+      Iep: "111060963"
+    },
+    identite: {
+      Ipp: "1106000987"
+    }
+  },
+  {
+    fields: {
+      DateMouvement: "2011-06-17 10:30:00",
+      UfHebergement: "CARD"
+    },
+    sejour: {
+      Iep: "111060963"
+    },
+    identite: {
+      Ipp: "1106000987"
+    }
+  }]
+}
+EOF
+  )
+);
+
 // ajout des ressources à l'api
 $identitesMouvements['resources'] = array(
-  $identitesMouvements_Identites
+  $identitesMouvements_Identites,
+  $identitesMouvements_Sejours,
+  $identitesMouvements_Mouvements
 );
 
 // Retourne la structure à générer

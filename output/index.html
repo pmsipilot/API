@@ -27,8 +27,8 @@
       <div class="span16">
                 <table class="views-table">
           <caption>
-            <strong>Identités Mouvements</strong>
-            <p>Connecteur Identiés/Mouvements et Actes.</p>
+            <strong>Identités/Mouvements</strong>
+            <p>Informations en temps-réel sur les identités, séjours et mouvements de l'établissement</p>
           </caption>
           <thead>
             <tr>
@@ -46,6 +46,24 @@
 Chaque identité contient ses propres informations ainsi que l'ensemble des séjours associés.<br />
 Chaque séjour associé contient ses propres informations ainsi que l'ensemble des mouvements associés.<br />
 D'autres API sont disponibles pour accéder direct
+              </td>
+            </tr>            <tr>
+              <td class="views-field-title">
+                <a href="sejours.html">GET api/sejours</a>
+              </td>
+              <td class="views-field-body">
+                Retourne les séjours.<br /><br />
+Chaque séjour contient ses propres informations, celles de l'ensemble des mouvements associés et celles de son patient.<br />
+D'autres API sont disponibles pour accéder directement aux <a href="identites.html">patient</a> ou aux <a href="mouvements.html">mouveme
+              </td>
+            </tr>            <tr>
+              <td class="views-field-title">
+                <a href="mouvements.html">GET api/mouvements</a>
+              </td>
+              <td class="views-field-body">
+                Retourne les mouvements.<br /><br />
+Chaque mouvement contient ses propres informations, celles de son séjour et celles de son patient.<br />
+D'autres API sont disponibles pour accéder directement aux <a href="identites.html">patient</a> ou aux <a href="sejours.html">sejours</a>.
               </td>
             </tr>
           </tbody>
