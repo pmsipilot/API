@@ -13,6 +13,31 @@ body {
   width: 1000px; /* downsize our container to make the content feel a bit tighter and more cohesive. NOTE: this removes two full columns from the grid, meaning you only go to 14 columns and not 16. */
 }
 
+.featured {
+  margin-top: 70px;
+  min-height: 230px;
+  padding: 25px 50px 0 250px;
+  background: url("../images/logo.png") 0 0 transparent no-repeat;
+}
+
+.featured .dialog {
+  font-size: 45px;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: 300;
+  line-height: 47px;
+  margin-bottom: 0.75em;
+}
+
+.featured a.large {
+  font-size: 23px;
+  line-height: normal;
+  padding: 13px;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  border-radius: 6px;
+}
+
 h1#title {
   font-size: 39px;
   font-style: normal;
