@@ -13,29 +13,85 @@ body {
   width: 1000px; /* downsize our container to make the content feel a bit tighter and more cohesive. NOTE: this removes two full columns from the grid, meaning you only go to 14 columns and not 16. */
 }
 
-.featured {
-  margin-top: 70px;
-  min-height: 230px;
-  padding: 25px 50px 0 250px;
-  background: url("../images/logo.png") 0 0 transparent no-repeat;
+.hero-unit
+{
+  background: url("../images/logo.png") 20px center #DDD no-repeat;
+  padding-left: 250px;
+  border-radius: 0 0 6px 6px;
 }
 
-.featured .dialog {
-  font-size: 45px;
-  font-style: normal;
-  font-variant: normal;
-  font-weight: 300;
-  line-height: 47px;
-  margin-bottom: 0.75em;
+.hero-unit h1 {
+  text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
 }
 
-.featured a.large {
+.hero-unit p {
+  margin-top: 5px;
+  color: #555;
+}
+
+.features {
+  width: 750px;
+  margin: 50px auto 0;
+}
+
+.features p {
+  font-size: 16px;
+  line-height: 20px;
+  padding-left: 50px;
+}
+
+.features p strong {
+  /*font-weight: normal;
+  color: #5a3;*/
+}
+
+.features p#identite {
+  background: url("../images/group.png") 0 center transparent no-repeat;
+}
+
+.features p#groupage {
+  background: url("../images/page_white_stack.png") 0 center transparent no-repeat;
+}
+
+.features p#qualifact {
+  background: url("../images/document_todo.png") 0 center transparent no-repeat;
+}
+
+.features p#valorisation {
+  background: url("../images/money_euro.png") 0 center transparent no-repeat;
+}
+
+.features p.special {
+  background: #ddd;
+  border-radius: 6px;
+  padding: 10px 15px;
+  margin: 50px 0 0 0
+}
+
+.features p.deduction {
+  background: url("../images/arrow_down.png") center left transparent no-repeat;
+  display: block;
+  height: 35px;
+  margin: 15px 0 15px 260px;
+  padding: 0;
+}
+
+.features a#documentation {
+  margin-right: 10px;
+}
+
+.features a#contact {
+  font-size: 18px;
+}
+
+.features a.large {
   font-size: 23px;
   line-height: normal;
   padding: 13px;
   -webkit-border-radius: 6px;
   -moz-border-radius: 6px;
   border-radius: 6px;
+  margin-top: 40px;
 }
 
 h1#title {
