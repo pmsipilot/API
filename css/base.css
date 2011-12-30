@@ -3,9 +3,43 @@ html, body {
   background-color: #fff;
   color: #555;
 }
+
 body {
   padding-top: 40px; /* 40px to make the container go all the way to the bottom of the topbar */
 }
+
+table {
+  margin-bottom: 3em;
+}
+
+li {
+  line-height: 21px;
+}
+
+code, pre {
+  font-family: Courier New, monospace;
+  font-size: 13px;
+  color: #222;
+  margin-bottom: 10px;
+}
+
+.topbar-inner, .topbar .fill {
+  background-image: -khtml-gradient(linear, left top, left bottom, from(#777), to(#222));
+  background-image: -moz-linear-gradient(top, #777, #222);
+  background-image: -ms-linear-gradient(top, #777, #222);
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #777), color-stop(100%, #222));
+  background-image: -webkit-linear-gradient(top, #777, #222);
+  background-image: -o-linear-gradient(top, #777, #222);
+  background-image: linear-gradient(top, #777, #222);
+}
+
+.topbar-inner, .topbar .fill .brand {
+  display: inline-block;
+  float: none;
+  padding: 8px 20px 12px 20px;
+  margin: 0;
+}
+
 .container > footer p {
   text-align: center; /* center align it with the container */
 }
@@ -105,10 +139,10 @@ h1#title {
 }
 
 h2  {
-  margin: 4px 0 10px;
+  margin: 25px 0 10px;
   line-height: 1.5em;
-  font-size: 16px;
-  color: black;
+  font-size: 22px;
+  color: #822;
 }
 
 /* The white background content wrapper */
@@ -129,6 +163,16 @@ a:hover, a:active {
 
 p {
   margin: 0 0 10px;
+}
+
+p.request {
+  background: url("../images/application_get.png") 0 2px transparent no-repeat;
+  padding-left: 30px;
+}
+
+p.response {
+  background: url("../images/application_put.png") 0 2px transparent no-repeat;
+  padding-left: 30px;
 }
 
 .breadcrumb {
@@ -168,7 +212,10 @@ p {
   border-color: #eee;
 }
 
-.views-table tr .views-field-title,
+.views-table tr .views-field-title {
+  width: 35%;
+}
+
 .parameters-table tr .parameters-field-title {
   width: 30%;
 }
@@ -214,7 +261,7 @@ pre.highlight .keyword { color: #01DBFF; }
 }
 
 .block-api table {
-  margin: 0;
+  margin: 0 0 20px 0;
 }
 
 .block-api table tr td,
@@ -222,8 +269,6 @@ pre.highlight .keyword { color: #01DBFF; }
   border: 1px solid #eee;
   border-width: 1px 0 0;
   font-weight: normal;
-}
-
-.block-api table tr td {
-  font-weight: bold;
+  padding-left: 0;
+  padding-right: 0;
 }

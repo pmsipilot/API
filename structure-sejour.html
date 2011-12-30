@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <title>API PMSIpilot</title>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/base.css">
+</head>
+<body>
+  <div class="topbar">
+    <div class="fill">
+      <div class="container">
+        <a class="brand" href="index.html">Présentation</a>
+        <a class="brand" href="documentation.html">Documentation</a>
+        <a class="brand" href="contact.html">Contact</a>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div id="breadcrumbs">
+      <div class="breadcrumb">
+        <a href="documentation.html">Documentation</a> → <a href="">Structure séjour</a>
+      </div>
+    </div><!-- end #breadcrumbs -->
+    <div class="content row">
+      <div class="span12">
+        <h1 id="title">Structure d'un séjour</h1>
+        <p>Liste des champs disponibles :
+          <ul>
+            <li><code>iep</code> <span class="label important">obligatoire</span> identifiant unique du séjour.</li>
+            <li><code>ipp</code> <span class="label important">obligatoire</span> identifiant unique de l'identité à laquelle appartient le séjour.</li>
+            <li><code>type_admission</code></li>
+            <li><code>date_preadmission</code> <span class="label">norme</span> aaaa-mm-jj hh:mm:ss</li>
+            <li><code>numero_preadmission</code></li>
+            <li><code>date_admission</code> <span class="label important">obligatoire</span>(ou date_preadmission) <span class="label">norme</span> aaaa-mm-jj hh:mm:ss</li>
+            <li><code>mode_entree</code></li>
+            <li><code>provenance</code></li>
+            <li><code>mode_transport_entree</code></li>
+            <li><code>etablissement_provenance</code></li>
+            <li><code>vip</code> <span class="label">norme</span> <strong>1</strong> oui - <strong>0</strong> non</li>
+            <li><code>date_sortie</code> <span class="label">norme</span> aaaa-mm-jj hh:mm:ss</li>
+            <li><code>mode_sortie</code></li>
+            <li><code>destination</code></li>
+            <li><code>mode_transport_sortie</code></li>
+            <li><code>etablissement_destination</code></li>
+          </ul>
+        </p>
+        <p>Exemple en JSON :</p>
+        <pre class="highlight">
+{
+  iep: "0000311963",
+  ipp: "1106000987",
+  type_admission: "R",
+  date_preadmission: "2011-06-17 08:26:00",
+  numero_preadmission: "1106000987",
+  date_admission: "2011-06-17 10:29:00",
+  mode_entree: "DOM",
+  provenance: null,
+  mode_transport_entree: null,
+  etablissement_provenance: "CH Sallanche",
+  vip: "0",
+  date_sortie: "2011-06-18 22:48:00",
+  mode_sortie: "RDOM",
+  destination: null,
+  mode_transport_sortie: null,
+  etablissement_destination: null
+}</pre>
+      </div>
+      <div class="span5">
+        <div class="block-api">
+          <h3>API</h3>
+          <table>
+            <tbody>
+            <tr><td><a href="identites.html">api/identites</a></td></tr>
+            <tr><td><a href="sejours.html">api/sejours</a></td></tr>
+            <tr><td><a href="mouvements.html">api/mouvements</a></td></tr>
+            </tbody>
+          </table>
+          <h3>Structures</h3>
+          <table>
+            <tbody>
+            <tr><td><a href="structure-identite.html">structure/identite</a></td></tr>
+            <tr><td><a href="structure-sejour.html">structure/sejour</a></td></tr>
+            <tr><td><a href="structure-mouvement.html">structure/mouvement</a></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div> <!-- /container -->
+  <footer>
+
+  </footer>
+  <script type="text/javascript">window.hijs = '.highlight';</script>
+  <script type="text/javascript" src="js/hijs.js"></script>
+</body>
+</html>

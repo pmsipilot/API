@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <title>API publiques de la suite logicielle PMSIpilot</title>
+  <title>API PMSIpilot</title>
   <meta charset="utf-8">
   <link rel="stylesheet" href="css/bootstrap.min.css">
   <link rel="stylesheet" href="css/base.css">
@@ -10,182 +10,75 @@
   <div class="topbar">
     <div class="fill">
       <div class="container">
-        <a class="brand" href="index.html">API PMSIpilot</a>
+        <a class="brand" href="index.html">Présentation</a>
+        <a class="brand" href="documentation.html">Documentation</a>
+        <a class="brand" href="contact.html">Contact</a>
       </div>
     </div>
   </div>
   <div class="container">
     <div id="breadcrumbs">
       <div class="breadcrumb">
-        <a href="index.html">Home</a> → <a href="api.html">Documentation</a> → <a href="#">Mouvements</a>
+        <a href="documentation.html">Documentation</a> → <a href="#">API Mouvements</a>
       </div>
     </div><!-- end #breadcrumbs -->
     <div class="content row">
       <div class="span12">
-        <h1 id="title">GET api/mouvements</h1>
-        <p>Retourne les mouvements.<br /><br />
-Chaque mouvement contient ses propres informations, celles de son séjour et celles de son patient.<br />
-D'autres API sont disponibles pour accéder directement aux <a href="identites.html">patient</a> ou aux <a href="sejours.html">sejours</a>.</p>
-        <h2>Exemple d'appel :</h2>
-        <pre><strong>GET</strong> api/mouvements</pre>
-        <table class="parameters-table">
-          <caption>
-            <strong>Paramètres :</strong><p>Tous les paramètres sont optionnels.</p>
-          </caption>
-          <tbody>
-                        <tr>
-              <td class="parameters-field-title">from <span>optionnel</span></td>
-              <td class="parameters-field-body">
-                <p>Borne inférieur de récupération des données.</p>
-<p><strong>format</strong>: <code>token</code> ou <code>{champ: valeur}</code></p>
-<p><em>Les champs disponibles <code>DateMouvement</code>, <code>CreatedAt</code> et <code>UpdatedAt</code></em></p>
-<p><strong>exemple de token </strong>: <code>91245</code></p>
-<p><strong>exemple de champs </strong>: <code>{"DateMouvement":"2011-05-25"}</code></p>
-              </td>
-            </tr>            <tr>
-              <td class="parameters-field-title">until <span>optionnel</span></td>
-              <td class="parameters-field-body">
-                <p>Borne supérieur de récupération des données.</p>
-<p><strong>format</strong>: <code>token</code> ou <code>{champ: valeur}</code></p>
-<p><em>Les champs disponibles <code>DateMouvement</code>, <code>CreatedAt</code> et <code>UpdatedAt</code></em></p>
-<p><strong>exemple de token </strong>: <code>91245</code></p>
-<p><strong>exemple de champs </strong>: <code>{"DateMouvement":"2011-05-25"}</code></p>
-              </td>
-            </tr>            <tr>
-              <td class="parameters-field-title">only <span>optionnel</span></td>
-              <td class="parameters-field-body">
-                <p>Permet de sélectionner uniquement certains champs. Si ce paramètre n'est pas présent tous les champs sont retournés. Le caractère <code>*</code> peut être utilisé pour retourner tous les champs.</p>
-<p><strong>exemple de valeur</strong>: 2011-05-25</p>
-<p>Liste des champs disponibles pour le mouvement :
-  <ul>
-    <li><code>*</code></li>
-    <li><code>LastMessageId</code></li>
-    <li><code>SejourId</code></li>
-    <li><code>Numero</code></li>
-    <li><code>NatureMouvement</code></li>
-    <li><code>DateMouvement</code></li>
-    <li><code>Chambre</code></li>
-    <li><code>Lit</code></li>
-    <li><code>UfHebergement</code></li>
-    <li><code>UfSoins</code></li>
-    <li><code>UfResponsabiliteMedicale</code></li>
-    <li><code>Dmt</code></li>
-    <li><code>ModeEntree</code></li>
-    <li><code>ModeSortie</code></li>
-    <li><code>Provenance</code></li>
-    <li><code>Destination</code></li>
-  </ul>
-</p>
-<p>Liste des champs disponibles pour le séjour :
-  <ul>
-    <li><code>*</code></li>
-    <li><code>IdentiteId</code></li>
-    <li><code>LastMessageId</code></li>
-    <li><code>TypeAdmission</code></li>
-    <li><code>CirconstanceSortie</code></li>
-    <li><code>ModeTransportEntree</code></li>
-    <li><code>ModeTransportSortie</code></li>
-    <li><code>ModeTraitement</code></li>
-    <li><code>ModeEntree</code></li>
-    <li><code>ModeSortie</code></li>
-    <li><code>Provenance</code></li>
-    <li><code>Destination</code></li>
-    <li><code>Iep</code></li>
-    <li><code>NumeroPreadmission</code></li>
-    <li><code>DatePreadmission</code></li>
-    <li><code>Vip</code></li>
-    <li><code>EtablissementDestination</code></li>
-    <li><code>EtablissementProvenance</code></li>
-    <li><code>DateAdmission</code></li>
-    <li><code>DateHospitalisationAnterieure</code></li>
-    <li><code>DateSortie</code></li>
-  </ul>
-</p>
-<p>Liste des champs disponibles pour l'identité :
-  <ul>
-    <li><code>*</code></li>
-    <li><code>LastMessageId</code></li>
-    <li><code>LastMessageId</code></li>
-    <li><code>Ipp</code></li>
-    <li><code>NomUsage</code></li>
-    <li><code>NomNaissance</code></li>
-    <li><code>NomNaissanceMere</code></li>
-    <li><code>Sexe</code></li>
-    <li><code>RangGemellaire</code></li>
-    <li><code>DateNaissance</code></li>
-    <li><code>NbSemaineGestation</code></li>
-    <li><code>Adresse1</code></li>
-    <li><code>Adresse2</code></li>
-    <li><code>Commune</code></li>
-    <li><code>CodePostal</code></li>
-    <li><code>Cedex</code></li>
-    <li><code>Pays</code></li>
-    <li><code>TelephoneDomicile</code></li>
-    <li><code>TelephonePortable</code></li>
-    <li><code>TelephonePro</code></li>
-  </ul>
-</p>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-        <table class="parameters-table">
-          <caption>
-            <strong>Retour :</strong><p></p>
-          </caption>
-          <tbody>
-                        <tr>
-              <td class="parameters-field-title">token</td>
-              <td class="parameters-field-body">
-                Entier auto incrémenté permettant au client de conserver l'index du dernier appel.<br/>
-Le client peut ainsi récupérer les informations de manière incrémentale en passant cette valeur lors du prochain appel à l'API.
-              </td>
-            </tr>            <tr>
-              <td class="parameters-field-title">api</td>
-              <td class="parameters-field-body">
-                Contient l'ensemble des données demandées.
-              </td>
-            </tr>
-          </tbody>
-        </table>
-        <h2>Exemple de requête :</h2>
-        <pre><strong>GET</strong> api/mouvements?only={"mouvement":["DateMouvement","UfHebergement"],"sejour":["Iep"],"identite":["Ipp"]}</pre>
+        <h1 id="title">API mouvements</h1>
+        <h2 id="recuperation-liste-mouvements">Récupération de la liste des mouvements (tous séjours confondus)</h2>
+        <pre><strong>GET</strong> api/mouvements.json?token=#{token}</pre>
+        <p class="request">Si le paramètre <code>token</code> est spécifié, seul les mouvements ajoutés ou modifiés depuis ce token seront retournées.</p>
+        <p class="response">L'API retourne un code 200 ("OK"), la liste des <a href="structure-mouvement.html">mouvements</a> triés par date de création (les plus récents en premiers) et le dernier token utilisé.</p>
         <pre class="highlight">
 {
-  token: 9,
-  datas: [{
-    fields: {
-      DateMouvement: "2011-06-17 10:29:00",
-      UfHebergement: "DIGE"
-    },
-    sejour: {
-      Iep: "111060963"
-    },
-    identite: {
-      Ipp: "1106000987"
-    }
-  },
-  {
-    fields: {
-      DateMouvement: "2011-06-17 10:30:00",
-      UfHebergement: "CARD"
-    },
-    sejour: {
-      Iep: "111060963"
-    },
-    identite: {
-      Ipp: "1106000987"
-    }
+  token: 2587,
+  data: [{
+    [{...}],
+    [{...}],
+    ...
   }]
 }</pre>
+        <h2 id="recuperation-liste-mouvements-sejour">Récupération de la liste des mouvements (d'un séjour)</h2>
+        <pre><strong>GET</strong> api/sejours.json/#{iep}/mouvements.json</pre>
+        <p class="request">Le paramètre <span class="label">obligatoire</span> <code>iep</code> permet de cibler le séjour dont l'on souhaite obtenir les mouvements.</p>
+        <p class="response">L'API retourne un code 200 ("OK") et la liste des <a href="structure-mouvement.html">mouvements</a> triés par date de création (les plus récents en premiers).</p>
+
+        <h2 id="recuperation-mouvement">Récupération d'un mouvement</h2>
+        <pre><strong>GET</strong> api/mouvements.json/#{id}</pre>
+        <p class="request">Le paramètre <span class="label">obligatoire</span> <code>id</code> permet de cibler le mouvement à retourner.</p>
+        <p class="response">L'API retourne un code 200 ("OK") et le <a href="structure-identite.html">mouvement</a> demandé.</p> 
+        
+        <h2 id="ajout-mouvement">Ajout d'un mouvement</h2>
+        <pre><strong>POST</strong> api/mouvements.json</pre>
+        <p class="request">Une <a href="structure-mouvement.html">structure mouvement</a> doit être passée en paramétre.</p>
+        <p class="response">L'API retourne un code 201 ("Created").</p> 
+
+        <h2 id="modification-mouvement">Modification d'un mouvement</h2>
+        <pre><strong>PUT</strong> api/mouvements.json/#{iep}</pre>
+        <p class="request">Le paramètre <span class="label">obligatoire</span> <code>iep</code> permet de cibler le mouvement à modifier.<br />Une <a href="structure-mouvement.html">structure mouvement</a> doit être passée en paramétre.</p>
+        <p class="response">L'API retourne un code 204 ("No Content").</p> 
+
+        <h2 id="suppression-mouvement">Suppression d'un mouvement</h2>
+        <pre><strong>DELETE</strong> api/mouvements.json/#{iep}</pre>
+        <p class="request">Le paramètre <span class="label">obligatoire</span> <code>iep</code> permet de cibler le mouvement à supprimer.</p>
+        <p class="response">L'API retourne un code 204 ("No Content").</p> 
       </div>
       <div class="span5">
         <div class="block-api">
-          <h2>Informations</h2>
+          <h3>API</h3>
           <table>
             <tbody>
-               <tr><th>Requiert une authentification ?</th><td>Non</td> </tr>
-               <tr><th>Méthode HTTP</th><td>GET</td> </tr>
+            <tr><td><a href="identites.html">api/identites</a></td></tr>
+            <tr><td><a href="mouvements.html">api/mouvements</a></td></tr>
+            <tr><td><a href="mouvements.html">api/mouvements</a></td></tr>
+            </tbody>
+          </table>
+          <h3>Structures</h3>
+          <table>
+            <tbody>
+            <tr><td><a href="structure-identite.html">structure/identite</a></td></tr>
+            <tr><td><a href="structure-mouvement.html">structure/mouvement</a></td></tr>
+            <tr><td><a href="structure-mouvement.html">structure/mouvement</a></td></tr>
             </tbody>
           </table>
         </div>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <title>API PMSIpilot</title>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/base.css">
+</head>
+<body>
+  <div class="topbar">
+    <div class="fill">
+      <div class="container">
+        <a class="brand" href="index.html">Présentation</a>
+        <a class="brand" href="documentation.html">Documentation</a>
+        <a class="brand" href="contact.html">Contact</a>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div id="breadcrumbs">
+      <div class="breadcrumb">
+        <a href="documentation.html">Documentation</a> → <a href="">Structure mouvement</a>
+      </div>
+    </div><!-- end #breadcrumbs -->
+    <div class="content row">
+      <div class="span12">
+        <h1 id="title">Structure d'un mouvement</h1>
+        <p>Liste des champs disponibles :
+          <ul>
+            <li><code>id</code> <span class="label notice">lecture seul</span></li>
+            <li><code>iep</code>  <span class="label important">obligatoire</span> identifiant unique du séjour auquel appartient le mouvement.</li>
+            <li><code>numero</code> <span class="label important">obligatoire</span> identifiant unique du mouvement au sein du séjour.</li>
+            <li><code>date_mouvement</code> <span class="label important">obligatoire</span> <span class="label">norme</span> aaaa-mm-jj hh:mm:ss</li>
+            <li><code>uf_hebergement</code></li>
+            <li><code>uf_soins</code></li>
+            <li><code>uf_responsablite_medicale</code></li>
+            <li><code>chambre</code></li>
+            <li><code>lit</code></li>
+            <li><code>mode_entree</code></li>
+            <li><code>provenance</code></li>
+          </ul>
+        </p>
+        <p>Exemple en JSON :</p>
+        <pre class="highlight">
+{
+  id: "54875",
+  iep: "0000311963",
+  numero: "1",
+  date_mouvement: "2011-06-17 10:29:00",
+  uf_hebergement: "DIGE",
+  uf_soins: null,
+  uf_responsablite_medicale: "DIGE",
+  chambre: "305",
+  lit: "F",
+  mode_entree: "DOM",
+  provenance: null
+}</pre>
+      </div>
+      <div class="span5">
+        <div class="block-api">
+          <h3>API</h3>
+          <table>
+            <tbody>
+            <tr><td><a href="identites.html">api/identites</a></td></tr>
+            <tr><td><a href="sejours.html">api/sejours</a></td></tr>
+            <tr><td><a href="mouvements.html">api/mouvements</a></td></tr>
+            </tbody>
+          </table>
+          <h3>Structures</h3>
+          <table>
+            <tbody>
+            <tr><td><a href="structure-identite.html">structure/identite</a></td></tr>
+            <tr><td><a href="structure-sejour.html">structure/sejour</a></td></tr>
+            <tr><td><a href="structure-mouvement.html">structure/mouvement</a></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div> <!-- /container -->
+  <footer>
+
+  </footer>
+  <script type="text/javascript">window.hijs = '.highlight';</script>
+  <script type="text/javascript" src="js/hijs.js"></script>
+</body>
+</html>

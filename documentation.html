@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <title>API PMSIpilot</title>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/base.css">
+</head>
+<body>
+
+  <div class="topbar">
+    <div class="fill">
+      <div class="container">
+        <a class="brand" href="index.html">Présentation</a>
+        <a class="brand" href="documentation.html">Documentation</a>
+        <a class="brand" href="contact.html">Contact</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div id="breadcrumbs">
+      <div class="breadcrumb">
+        <a href="documentation.html">Documentation</a>
+      </div>
+    </div><!-- end #breadcrumbs -->
+    <div class="content">
+      <h1 id="title">API PMSIpilot</h1>
+      <div class="span16">
+        <table class="views-table">
+          <caption>
+            <strong>Identités</strong>
+            <p>Informations en temps-réel sur les identités.</p>
+          </caption>
+          <thead>
+            <tr>
+              <th class="views-field-title">Resource</th>
+              <th class="views-field-body">Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="views-field-title"><a href="identites.html#recuperation-liste-identites">GET api/identites</a></td>
+              <td class="views-field-body">Retourne la liste des identités.</td>
+            </tr>
+            <tr>
+              <td class="views-field-title"><a href="identites.html#recuperation-identite">GET api/identites/:ipp</a></td>
+              <td class="views-field-body">Retourne l'identité identifiée par <code>:ipp</code>.</td>
+            </tr>
+            <tr>
+              <td class="views-field-title"><a href="identites.html#ajout-identite">POST api/identites</a></td>
+              <td class="views-field-body">Ajoute une identité.</td>
+            </tr>
+            <tr>
+              <td class="views-field-title"><a href="identites.html#modification-identite">PUT api/identites/:ipp</a></td>
+              <td class="views-field-body">Modifie l'identité identifiée par <code>:ipp</code>.</td>
+            </tr>
+            <tr>
+              <td class="views-field-title"><a href="identites.html#fusion-identites">PUT api/identites/:ipp-destination/merge/:ipp-source</a></td>
+              <td class="views-field-body">Fusionne l'identité identitfiée par <code>:ipp-source</code> dans l'identité identifiée par <code>:ipp-destination</code>.</td>
+            </tr>
+            <tr>
+              <td class="views-field-title"><a href="identites.html#suppression-identite">DELETE api/identites/:ipp</a></td>
+              <td class="views-field-body">Supprime l'identité identifiée par <code>:ipp</code>.</td>
+            </tr>
+          </tbody>
+        </table>
+        <table class="views-table">
+          <caption>
+            <strong>Séjours</strong>
+            <p>Informations en temps-réel sur les séjours.</p>
+          </caption>
+          <thead>
+            <tr>
+              <th class="views-field-title">Resource</th>
+              <th class="views-field-body">Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="views-field-title"><a href="sejours.html#recuperation-liste-séjours">GET api/sejours</a></td>
+              <td class="views-field-body">Retourne la liste des séjours.</td>
+            </tr>
+            <tr>
+              <td class="views-field-title"><a href="sejours.html#recuperation-liste-séjours-identite">GET api/identites/:ipp/sejours</a></td>
+              <td class="views-field-body">Retourne la liste des séjours de l'identité identifiée par <code>:ipp</code>.</td>
+            </tr>
+            <tr>
+              <td class="views-field-title"><a href="sejours.html#recuperation-sejour">GET api/sejours/:iep</a></td>
+              <td class="views-field-body">Retourne le séjour identifié par <code>:iep</code>.</td>
+            </tr>
+            <tr>
+              <td class="views-field-title"><a href="sejours.html#ajout-sejour">POST api/identites/:ipp/sejours</a></td>
+              <td class="views-field-body">Ajoute un séjour à l'identité identifiée par <code>:ipp</code>.</td>
+            </tr>
+            <tr>
+              <td class="views-field-title"><a href="sejours.html#modification-sejour">PUT api/sejours/:iep</a></td>
+              <td class="views-field-body">Modifie le séjour identifié par <code>:iep</code>.</td>
+            </tr>
+            <tr>
+              <td class="views-field-title"><a href="sejours.html#suppression-sejour">DELETE api/sejours/:iep</a></td>
+              <td class="views-field-body">Supprime le séjour identifié par <code>:iep</code>.</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <table class="views-table">
+          <caption>
+            <strong>Mouvements</strong>
+            <p>Informations en temps-réel sur les mouvements.</p>
+          </caption>
+          <thead>
+            <tr>
+              <th class="views-field-title">Resource</th>
+              <th class="views-field-body">Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="views-field-title"><a href="mouvements.html">GET api/mouvements</a></td>
+              <td class="views-field-body">Retourne la liste des mouvements.</td>
+            </tr>
+            <tr>
+              <td class="views-field-title"><a href="mouvements.html">GET api/sejours/:iep/mouvements</a></td>
+              <td class="views-field-body">Retourne la liste des mouvements d'un séjour identifié par <code>:iep</code>.</td>
+            </tr>
+            <tr>
+              <td class="views-field-title"><a href="mouvements.html">GET api/mouvements/:id</a></td>
+              <td class="views-field-body">Retourne le mouvement identifié par <code>:id</code>.</td>
+            </tr>
+            <tr>
+              <td class="views-field-title"><a href="mouvements.html">POST api/sejours/:iep/mouvements</a></td>
+              <td class="views-field-body">Ajoute un mouvement au séjour identifié par <code>:iep</code>.</td>
+            </tr>
+            <tr>
+              <td class="views-field-title"><a href="mouvements.html">PUT api/mouvements/:id</a></td>
+              <td class="views-field-body">Modifie le mouvement identifié par <code>:id</code>.</td>
+            </tr>
+            <tr>
+              <td class="views-field-title"><a href="mouvements.html">DELETE api/mouvements/:id</a></td>
+              <td class="views-field-body">Supprime le mouvement identifié par <code>:id</code>.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div> <!-- /container -->
+</body>
+</html>
