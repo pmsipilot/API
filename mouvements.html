@@ -27,7 +27,7 @@
         <h1 id="title">API mouvements</h1>
         <h2 id="recuperation-liste-mouvements">Récupération de la liste des mouvements (tous séjours confondus)</h2>
         <pre><strong>GET</strong> api/mouvements.json?token=#{token}</pre>
-        <p class="request">Si le paramètre <code>token</code> est spécifié, seul les mouvements ajoutés ou modifiés depuis ce token seront retournées.</p>
+        <p class="request">Si le paramètre <code>token</code> est spécifié, seuls les mouvements ajoutés ou modifiés depuis ce token seront retournées.</p>
         <p class="response">L'API retourne un code 200 ("OK"), la liste des <a href="structure-mouvement.html">mouvements</a> triés par date de création (les plus récents en premiers) et le dernier token utilisé.</p>
         <pre class="highlight">
 {

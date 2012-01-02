@@ -27,7 +27,7 @@
         <h1 id="title">API séjours</h1>
         <h2 id="recuperation-liste-séjours">Récupération de la liste des séjours (toutes identités confondues)</h2>
         <pre><strong>GET</strong> api/sejours.json?token=#{token}</pre>
-        <p class="request">Si le paramètre <code>token</code> est spécifié, seul les séjours ajoutés ou modifiés depuis ce token seront retournées.</p>
+        <p class="request">Si le paramètre <code>token</code> est spécifié, seuls les séjours ajoutés ou modifiés depuis ce token seront retournées.</p>
         <p class="response">L'API retourne un code 200 ("OK"), la liste des <a href="structure-sejour.html">séjours</a> triés par date de création (les plus récents en premiers) et le dernier token utilisé.</p>
         <pre class="highlight">
 {

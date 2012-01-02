@@ -27,7 +27,7 @@
         <h1 id="title">API identités</h1>
         <h2 id="recuperation-liste-identites">Récupération de la liste des identités</h2>
         <pre><strong>GET</strong> api/identites.json?token=#{token}</pre>
-        <p class="request">Si le paramètre <code>token</code> est spécifié, seul les identités ajoutées ou modifiées depuis ce token seront retournées.</p>
+        <p class="request">Si le paramètre <code>token</code> est spécifié, seules les identités ajoutées ou modifiées depuis ce token seront retournées.</p>
         <p class="response">L'API retourne un code 200 ("OK"), la liste des <a href="structure-identite.html">identités</a> triées par date de création (les plus récentes en premières) et le dernier token utilisé.</p>
         <pre class="highlight">
 {
