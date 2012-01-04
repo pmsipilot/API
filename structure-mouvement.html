@@ -27,7 +27,7 @@
         <h1 id="title">Structure d'un mouvement</h1>
         <p>Liste des champs disponibles :
           <ul>
-            <li><code>id</code> <span class="label notice">lecture seul</span></li>
+            <li><code>ipm</code> <span class="label important">obligatoire</span> identifiant permanent du mouvement.</li>
             <li><code>iep</code>  <span class="label important">obligatoire</span> identifiant unique du séjour auquel appartient le mouvement.</li>
             <li><code>numero</code> <span class="label important">obligatoire</span> identifiant unique du mouvement au sein du séjour.</li>
             <li><code>date_mouvement</code> <span class="label important">obligatoire</span> <span class="label">norme</span> aaaa-mm-jj hh:mm:ss</li>
@@ -43,7 +43,7 @@
         <p>Exemple en JSON :</p>
         <pre class="highlight">
 {
-  id: "54875",
+  ipm: "54875",
   iep: "0000311963",
   numero: "1",
   date_mouvement: "2011-06-17 10:29:00",
@@ -58,6 +58,13 @@
       </div>
       <div class="span5">
         <div class="block-api">
+          <h3>Spécifications</h3>
+          <table>
+            <tbody>
+            <tr><td><a href="specification-requetes.html">requêtes HTTP</a></td></tr>
+            <tr><td><a href="specification-reponses.html">réponses HTTP</a></td></tr>
+            </tbody>
+          </table>
           <h3>API</h3>
           <table>
             <tbody>

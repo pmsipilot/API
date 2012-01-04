@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <title>API PMSIpilot</title>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/base.css">
+</head>
+<body>
+  <div class="topbar">
+    <div class="fill">
+      <div class="container">
+        <a class="brand" href="index.html">Présentation</a>
+        <a class="brand" href="documentation.html">Documentation</a>
+        <a class="brand" href="contact.html">Contact</a>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div id="breadcrumbs">
+      <div class="breadcrumb">
+        <a href="documentation.html">Documentation</a> → <a href="">Spécification des requêtes</a>
+      </div>
+    </div><!-- end #breadcrumbs -->
+    <div class="content row">
+      <div class="span12">
+        <h1 id="title">Spécification des requêtes</h1>
+        <p>Les API PMSIpilot utilisent le protocole <a href="http://fr.wikipedia.org/wiki/Hypertext_Transfer_Protocol" title="HTTP">HTTP</a> avec les verbes GET, POST, PUT et DELETE.<br />
+        Toutes les données sont reçues en <a href="http://fr.wikipedia.org/wiki/JavaScript_Object_Notation" title="JSON">JSON</a>.<br />
+        Les champs vides sont pris en compte et représentent la valeur <code>null</code>.</p>
+
+        <h2>Authentification</h2>
+        <p>L'authentification est gérée par l'authentification "Basic" de HTTP.</p>
+        <p>Il est possible d'utiliser directement le login et le mot de passe :</p>
+        <pre>curl -u 'login:password' http://url-api-pmsipilot</pre>
+        <p>Mais il est recommandé d'utiliser la clé API à la place du login (et n'importe quoi dans le mot de passe, "x" par exemple) afin d'éviter de saisir le mot de passe en clair :</p> 
+        <pre>curl -u 'd53635dc733afce75138303fe6e6010f63268ad0:x' http://url-api-pmsipilot</pre>
+        <p>Chaque utilisateur possède une clé API unique, qu'il peut regénérer quand il le souhaite via l'interface d'administration.</p>
+
+        <h2>Format d'échange</h2>
+        <p>Toutes les données sont actuellement reçues et envoyées en <a href="http://fr.wikipedia.org/wiki/JavaScript_Object_Notation" title="JSON">JSON</a>.</p>
+        <p>Il faut donc impérativement spécifier le header 'Accept' pour toutes les requêtes :</p>
+        <pre>curl -H 'Accept: application/json' http://url-api-pmsipilot</pre>
+        <p>Il faut aussi spécifier le header 'Content-Type' pour les requêtes auquelles sont passées des données :</p>
+        <pre>curl -H 'Content-Type: application/json' http://url-api-pmsipilot</pre>
+
+        <h2>Limitation</h2>
+        <p>L'utilisation de l'API PMSIpilot est limitée à 5000 appels / heure / utilisateur.<br />
+          Le nombre total d'appels autorisé ainsi que le nombre restant d'appels possible sont visibles dans les headers personnalisés <a href="specification-reponses.html#ratelimit-limit">RateLimit-Limit</a> et <a href="specification-reponses.html#ratelimit-remaining">RateLimit-Remaining</a> de chaque réponse HTTP.</p>
+      </div>
+      <div class="span5">
+        <div class="block-api">
+          <h3>Spécifications</h3>
+          <table>
+            <tbody>
+            <tr><td><a href="specification-requetes.html">requêtes HTTP</a></td></tr>
+            <tr><td><a href="specification-reponses.html">réponses HTTP</a></td></tr>
+            </tbody>
+          </table>
+          <h3>API</h3>
+          <table>
+            <tbody>
+            <tr><td><a href="identites.html">api/identites</a></td></tr>
+            <tr><td><a href="sejours.html">api/sejours</a></td></tr>
+            <tr><td><a href="mouvements.html">api/mouvements</a></td></tr>
+            </tbody>
+          </table>
+          <h3>Structures</h3>
+          <table>
+            <tbody>
+            <tr><td><a href="structure-identite.html">structure/identite</a></td></tr>
+            <tr><td><a href="structure-sejour.html">structure/sejour</a></td></tr>
+            <tr><td><a href="structure-mouvement.html">structure/mouvement</a></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div> <!-- /container -->
+  <footer>
+
+  </footer>
+  <script type="text/javascript">window.hijs = '.highlight';</script>
+  <script type="text/javascript" src="js/hijs.js"></script>
+</body>
+</html>

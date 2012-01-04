@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <title>API PMSIpilot</title>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/base.css">
+</head>
+<body>
+  <div class="topbar">
+    <div class="fill">
+      <div class="container">
+        <a class="brand" href="index.html">Présentation</a>
+        <a class="brand" href="documentation.html">Documentation</a>
+        <a class="brand" href="contact.html">Contact</a>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div id="breadcrumbs">
+      <div class="breadcrumb">
+        <a href="documentation.html">Documentation</a> → <a href="">Spécification des réponses</a>
+      </div>
+    </div><!-- end #breadcrumbs -->
+    <div class="content row">
+      <div class="span12">
+        <h1 id="title">Spécification des réponses</h1>
+        <p>Les API PMSIpilot utilisent le protocole <a href="http://fr.wikipedia.org/wiki/Hypertext_Transfer_Protocol" title="HTTP">HTTP</a>.<br />
+        Toutes les données sont retournées en <a href="http://fr.wikipedia.org/wiki/JavaScript_Object_Notation" title="JSON">JSON</a>.<br />
+        Les dates sont retournées au format <code>AAAA-MM-JJ HH:MM:SS</code></p>
+
+        <h2 id="requete-reussie">Requête réussie</h2>
+        <p>Si la requête réussit, la réponse retournée contient un code de statut HTTP de succès ainsi que le contenu attendu :</p>
+        <table>
+          <thead><tr><th>Code</th><th>Signification</th><th>Contenu</th></tr></thead>
+          <tbody>
+            <tr><td>200</td><td>Requête réussie retournant du contenu.</td><td>Oui</td></tr>
+            <tr><td>201</td><td>Création réussie de ressource.</td><td>Non</td></tr>
+            <tr><td>204</td><td>Autre requête réussie ne retournant pas de contenu.</td><td>Non</td></tr>
+          </tbody>
+        </table>
+        
+        <h2 id="erreur-client">Gestion des erreurs du client</h2>
+        <p>Si la requête échoue, la réponse retournée contient un code de statut HTTP d'erreur du client :</p>
+        <table>
+          <thead><tr><th>Code</th><th>Signification</th><th>Contenu</th></tr></thead>
+          <tbody>
+            <tr><td>400</td><td>Mauvais formatage de l'entité passée à la requête.</td><td>Non</td></tr>
+            <tr><td>422</td><td>L'entité passée à la requête n'est pas satisfaisante.</td><td>Oui (voir ci-dessous)</td></tr>
+          </tbody>
+        </table>
+        <p>Si l'entité passée à la requête n'est pas satisfaisante, le contenu de la réponse est du type :</p>
+        <pre class="highlight">
+HTTP/1.1 422 Unprocessable Entity
+Content-Length: 175
+
+{
+  "message": "Une autre identité possède déjà l'IPP 321",
+  "errors": [
+    {
+      "resource": "identites",
+      "field": "ipp",
+      "code": "already_exists"
+    }
+  ]
+}</pre>
+
+        <p>Toutes les erreurs disposent des champs <strong>resource</strong> et <strong>field</strong> afin que le client puisse remonter une erreur cohérente.<br />Un champ <strong>code</strong> est aussi présent pour préciser la nature du problème :</p>
+        <table>
+          <thead><tr><th>Code</th><th>Signification</th></tr></thead>
+          <tbody>
+          <tr><td>missing</td><td>La ressource ciblée n'existe pas.</td></tr>
+          <tr><td>missing_field</td><td>Un champ obligatoire d'une ressource n'est pas présent dans l'entité.</td></tr>
+          <tr><td>invalid</td><td>Le format du champ est invalide.</td></tr>
+          <tr><td>already_exists</td><td>Un même champ d'une autre ressource contient déjà la même valeur que le champ de l'entité.</td></tr>
+          </tbody>
+        </table>
+
+        <h2 id="headers-personnalises">Headers HTTP personnalisés</h2>
+        <p>Afin de ne pas poluer le contenu de la réponse HTTP, les API PMSIpilot retournent plusieurs informations annexes dans des headers personnalisés :</p>
+
+        <h4 id="last-token">Last-Token</h4>
+        <p>
+          Contient la valeur du token généré par la modification de la ressource lors d'une requête d'écriture.<br />
+          Contient la valeur du token utilisé pour modifier la plus récente ressource retournée lors d'une requête de lecture.
+        </p>
+        <p></p><strong>Fréquence</strong> : présent dans toutes les réponses de réquêtes réussies.</p>
+        <pre>
+HTTP/1.1 200 OK
+Status: 200 OK
+RateLimit-Limit: 5000
+RateLimit-Remaining: 4857</pre>
+
+        <h4 id="ratelimit-limit">RateLimit-Limit</h4>
+        <p>Indique le nombre total d'appels possibles à l'API par heure et par utilisateur.</p>
+        <p></p><strong>Fréquence</strong> : présent dans toutes les réponses.</p>
+        <pre>
+HTTP/1.1 400 Bad Request
+Status: 400 Bad Request
+RateLimit-Limit: 5000</pre>
+
+        <h4 id="ratelimit-remaining">RateLimit-Remaining</h4>
+        <p>Indique le nombre restant d'appels possibles à l'API par heure et par utilisateur.</p>
+        <p></p><strong>Fréquence</strong> : présent dans toutes les réponses.</p>
+        <pre>
+HTTP/1.1 400 Bad Request
+Status: 400 Bad Request
+RateLimit-Remaining: 224</pre>
+      </div>
+      <div class="span5">
+        <div class="block-api">
+          <h3>Spécifications</h3>
+          <table>
+            <tbody>
+            <tr><td><a href="specification-requetes.html">requêtes HTTP</a></td></tr>
+            <tr><td><a href="specification-reponses.html">réponses HTTP</a></td></tr>
+            </tbody>
+          </table>
+          <h3>API</h3>
+          <table>
+            <tbody>
+            <tr><td><a href="identites.html">api/identites</a></td></tr>
+            <tr><td><a href="sejours.html">api/sejours</a></td></tr>
+            <tr><td><a href="mouvements.html">api/mouvements</a></td></tr>
+            </tbody>
+          </table>
+          <h3>Structures</h3>
+          <table>
+            <tbody>
+            <tr><td><a href="structure-identite.html">structure/identite</a></td></tr>
+            <tr><td><a href="structure-sejour.html">structure/sejour</a></td></tr>
+            <tr><td><a href="structure-mouvement.html">structure/mouvement</a></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div> <!-- /container -->
+  <footer>
+
+  </footer>
+  <script type="text/javascript">window.hijs = '.highlight';</script>
+  <script type="text/javascript" src="js/hijs.js"></script>
+</body>
+</html>

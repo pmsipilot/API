@@ -28,16 +28,8 @@
         <h2 id="recuperation-liste-identites">Récupération de la liste des identités</h2>
         <pre><strong>GET</strong> api/identites.json?token=#{token}</pre>
         <p class="request">Si le paramètre <code>token</code> est spécifié, seules les identités ajoutées ou modifiées depuis ce token seront retournées.</p>
-        <p class="response">L'API retourne un code 200 ("OK"), la liste des <a href="structure-identite.html">identités</a> triées par date de création (les plus récentes en premières) et le dernier token utilisé.</p>
-        <pre class="highlight">
-{
-  token: 2587,
-  data: [{
-    [{...}],
-    [{...}],
-    ...
-  }]
-}</pre>
+        <p class="response">L'API retourne la liste des <a href="structure-identite.html">identités</a> triées par date de création (les plus anciennes en premier).</p>
+
         <h2 id="recuperation-identite">Récupération d'une identité</h2>
         <pre><strong>GET</strong> api/identites.json/#{ipp}</pre>
         <p class="request">Le paramètre <span class="label">obligatoire</span> <code>ipp</code> permet de cibler l'identité à retourner.</p>
@@ -45,12 +37,12 @@
         
         <h2 id="ajout-identite">Ajout d'une identité</h2>
         <pre><strong>POST</strong> api/identites.json</pre>
-        <p class="request">Une <a href="structure-identite.html">structure identité</a> doit être passée en paramétre.</p>
+        <p class="request">Une <a href="structure-identite.html">identité</a> doit être passée en paramètre.</p>
         <p class="response">L'API retourne un code 201 ("Created").</p> 
 
         <h2 id="modification-identite">Modification d'une identité</h2>
         <pre><strong>PUT</strong> api/identites.json/#{ipp}</pre>
-        <p class="request">Le paramètre <span class="label">obligatoire</span> <code>ipp</code> permet de cibler l'identité à modifier.<br />Une <a href="structure-identite.html">structure identité</a> doit être passée en paramétre.</p>
+        <p class="request">Le paramètre <span class="label">obligatoire</span> <code>ipp</code> permet de cibler l'identité à modifier.<br />Une <a href="structure-identite.html">identité</a> doit être passée en paramétre.</p>
         <p class="response">L'API retourne un code 204 ("No Content").</p> 
 
         <h2 id="fusion-identites">Fusion de deux identités</h2>
@@ -66,6 +58,13 @@
       </div>
       <div class="span5">
         <div class="block-api">
+          <h3>Spécifications</h3>
+          <table>
+            <tbody>
+            <tr><td><a href="specification-requetes.html">requêtes HTTP</a></td></tr>
+            <tr><td><a href="specification-reponses.html">réponses HTTP</a></td></tr>
+            </tbody>
+          </table>
           <h3>API</h3>
           <table>
             <tbody>
