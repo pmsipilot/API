@@ -26,32 +26,32 @@
       <div class="span12">
         <h1 id="title">API mouvements</h1>
         <h2 id="recuperation-liste-mouvements">Récupération de la liste des mouvements (tous séjours confondus)</h2>
-        <pre><strong>GET</strong> api/mouvements.json?token=#{token}</pre>
+        <pre><strong>GET</strong> api/mouvements?token=#{token}</pre>
         <p class="request">Si le paramètre <code>token</code> est spécifié, seuls les mouvements ajoutés ou modifiés depuis ce token seront retournés.</p>
         <p class="response">L'API retourne un code 200 ("OK"), la liste des <a href="structure-mouvement.html">mouvements</a> triés par date de création (les plus anciens en premier) et le dernier token utilisé.</p>
 
         <h2 id="recuperation-liste-mouvements-sejour">Récupération de la liste des mouvements (d'un séjour)</h2>
-        <pre><strong>GET</strong> api/sejours.json/#{iep}/mouvements.json</pre>
+        <pre><strong>GET</strong> api/sejours/#{iep}/mouvements</pre>
         <p class="request">Le paramètre <span class="label">obligatoire</span> <code>iep</code> permet de cibler le séjour dont on souhaite obtenir les mouvements.</p>
         <p class="response">L'API retourne un code 200 ("OK") et la liste des <a href="structure-mouvement.html">mouvements</a> triés par date de création (les plus anciens en premier).</p>
 
         <h2 id="recuperation-mouvement">Récupération d'un mouvement</h2>
-        <pre><strong>GET</strong> api/mouvements.json/#{ipm}</pre>
+        <pre><strong>GET</strong> api/mouvements/#{ipm}</pre>
         <p class="request">Le paramètre <span class="label">obligatoire</span> <code>ipm</code> permet de cibler le mouvement à retourner.</p>
         <p class="response">L'API retourne un code 200 ("OK") et le <a href="structure-identite.html">mouvement</a> demandé.</p> 
         
         <h2 id="ajout-mouvement">Ajout d'un mouvement</h2>
-        <pre><strong>POST</strong> api/mouvements.json</pre>
+        <pre><strong>POST</strong> api/mouvements</pre>
         <p class="request">Un <a href="structure-mouvement.html">mouvement</a> doit être passé en paramètre.</p>
         <p class="response">L'API retourne un code 201 ("Created").</p> 
 
         <h2 id="modification-mouvement">Modification d'un mouvement</h2>
-        <pre><strong>PUT</strong> api/mouvements.json/#{ipm}</pre>
+        <pre><strong>PUT</strong> api/mouvements/#{ipm}</pre>
         <p class="request">Le paramètre <span class="label">obligatoire</span> <code>ipm</code> permet de cibler le mouvement à modifier.<br />Un <a href="structure-mouvement.html">mouvement</a> doit être passé en paramètre.</p>
         <p class="response">L'API retourne un code 204 ("No Content").</p> 
 
         <h2 id="suppression-mouvement">Suppression d'un mouvement</h2>
-        <pre><strong>DELETE</strong> api/mouvements.json/#{ipm}</pre>
+        <pre><strong>DELETE</strong> api/mouvements/#{ipm}</pre>
         <p class="request">Le paramètre <span class="label">obligatoire</span> <code>ipm</code> permet de cibler le mouvement à supprimer.</p>
         <p class="response">L'API retourne un code 204 ("No Content").</p> 
       </div>
@@ -68,6 +68,7 @@
           <table>
             <tbody>
             <tr><td><a href="identites.html">api/identites</a></td></tr>
+            <tr><td><a href="fusions.html">api/fusions</a></td></tr>
             <tr><td><a href="sejours.html">api/sejours</a></td></tr>
             <tr><td><a href="mouvements.html">api/mouvements</a></td></tr>
             </tbody>
@@ -76,6 +77,7 @@
           <table>
             <tbody>
             <tr><td><a href="structure-identite.html">structure/identite</a></td></tr>
+            <tr><td><a href="structure-fusion.html">structure/fusion</a></td></tr>
             <tr><td><a href="structure-sejour.html">structure/sejour</a></td></tr>
             <tr><td><a href="structure-mouvement.html">structure/mouvement</a></td></tr>
             </tbody>

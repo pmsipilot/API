@@ -26,32 +26,32 @@
       <div class="span12">
         <h1 id="title">API séjours</h1>
         <h2 id="recuperation-liste-séjours">Récupération de la liste des séjours (toutes identités confondues)</h2>
-        <pre><strong>GET</strong> api/sejours.json?token=#{token}</pre>
+        <pre><strong>GET</strong> api/sejours?token=#{token}</pre>
         <p class="request">Si le paramètre <code>token</code> est spécifié, seuls les séjours ajoutés ou modifiés depuis ce token seront retournés.</p>
         <p class="response">L'API retourne un code 200 ("OK") et la liste des <a href="structure-sejour.html">séjours</a> triés par date de création (les plus anciens en premier).</p>
 
         <h2 id="recuperation-liste-séjours-identite">Récupération de la liste des séjours (d'une identité)</h2>
-        <pre><strong>GET</strong> api/identites.json/#{ipp}/sejours.json</pre>
+        <pre><strong>GET</strong> api/identites/#{ipp}/sejours</pre>
         <p class="request">Le paramètre <span class="label">obligatoire</span> <code>ipp</code> permet de cibler l'identité dont on souhaite obtenir les séjours.</p>
         <p class="response">L'API retourne un code 200 ("OK") et la liste des <a href="structure-sejour.html">séjours</a> triés par date de création (les plus anciens en premier).</p>
 
         <h2 id="recuperation-sejour">Récupération d'un séjour</h2>
-        <pre><strong>GET</strong> api/sejours.json/#{iep}</pre>
+        <pre><strong>GET</strong> api/sejours/#{iep}</pre>
         <p class="request">Le paramètre <span class="label">obligatoire</span> <code>iep</code> permet de cibler le séjour à retourner.</p>
         <p class="response">L'API retourne un code 200 ("OK") et le <a href="structure-identite.html">séjour</a> demandé.</p> 
         
         <h2 id="ajout-sejour">Ajout d'un séjour</h2>
-        <pre><strong>POST</strong> api/sejours.json</pre>
+        <pre><strong>POST</strong> api/sejours</pre>
         <p class="request">Un <a href="structure-sejour.html">séjour</a> doit être passé en paramètre.</p>
         <p class="response">L'API retourne un code 201 ("Created").</p> 
 
         <h2 id="modification-sejour">Modification d'un séjour</h2>
-        <pre><strong>PUT</strong> api/sejours.json/#{iep}</pre>
+        <pre><strong>PUT</strong> api/sejours/#{iep}</pre>
         <p class="request">Le paramètre <span class="label">obligatoire</span> <code>iep</code> permet de cibler le séjour à modifier.<br />Un <a href="structure-sejour.html">séjour</a> doit être passé en paramètre.</p>
         <p class="response">L'API retourne un code 204 ("No Content").</p> 
 
         <h2 id="suppression-sejour">Suppression d'un séjour</h2>
-        <pre><strong>DELETE</strong> api/sejours.json/#{iep}</pre>
+        <pre><strong>DELETE</strong> api/sejours/#{iep}</pre>
         <p class="request">Le paramètre <span class="label">obligatoire</span> <code>iep</code> permet de cibler le séjour à supprimer.</p>
         <p class="response">L'API retourne un code 204 ("No Content").</p> 
       </div>
@@ -68,6 +68,7 @@
           <table>
             <tbody>
             <tr><td><a href="identites.html">api/identites</a></td></tr>
+            <tr><td><a href="fusions.html">api/fusions</a></td></tr>
             <tr><td><a href="sejours.html">api/sejours</a></td></tr>
             <tr><td><a href="mouvements.html">api/mouvements</a></td></tr>
             </tbody>
@@ -76,6 +77,7 @@
           <table>
             <tbody>
             <tr><td><a href="structure-identite.html">structure/identite</a></td></tr>
+            <tr><td><a href="structure-fusion.html">structure/fusion</a></td></tr>
             <tr><td><a href="structure-sejour.html">structure/sejour</a></td></tr>
             <tr><td><a href="structure-mouvement.html">structure/mouvement</a></td></tr>
             </tbody>

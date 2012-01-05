@@ -26,33 +26,33 @@
       <div class="span12">
         <h1 id="title">API identités</h1>
         <h2 id="recuperation-liste-identites">Récupération de la liste des identités</h2>
-        <pre><strong>GET</strong> api/identites.json?token=#{token}</pre>
+        <pre><strong>GET</strong> api/identites?token=#{token}</pre>
         <p class="request">Si le paramètre <code>token</code> est spécifié, seules les identités ajoutées ou modifiées depuis ce token seront retournées.</p>
         <p class="response">L'API retourne la liste des <a href="structure-identite.html">identités</a> triées par date de création (les plus anciennes en premier).</p>
 
         <h2 id="recuperation-identite">Récupération d'une identité</h2>
-        <pre><strong>GET</strong> api/identites.json/#{ipp}</pre>
+        <pre><strong>GET</strong> api/identites/#{ipp}</pre>
         <p class="request">Le paramètre <span class="label">obligatoire</span> <code>ipp</code> permet de cibler l'identité à retourner.</p>
         <p class="response">L'API retourne un code 200 ("OK") et l'<a href="structure-identite.html">identité</a> demandée.</p> 
         
         <h2 id="ajout-identite">Ajout d'une identité</h2>
-        <pre><strong>POST</strong> api/identites.json</pre>
+        <pre><strong>POST</strong> api/identites</pre>
         <p class="request">Une <a href="structure-identite.html">identité</a> doit être passée en paramètre.</p>
         <p class="response">L'API retourne un code 201 ("Created").</p> 
 
         <h2 id="modification-identite">Modification d'une identité</h2>
-        <pre><strong>PUT</strong> api/identites.json/#{ipp}</pre>
+        <pre><strong>PUT</strong> api/identites/#{ipp}</pre>
         <p class="request">Le paramètre <span class="label">obligatoire</span> <code>ipp</code> permet de cibler l'identité à modifier.<br />Une <a href="structure-identite.html">identité</a> doit être passée en paramètre.</p>
         <p class="response">L'API retourne un code 204 ("No Content").</p> 
 
         <h2 id="fusion-identites">Fusion de deux identités</h2>
-        <pre><strong>PUT</strong> api/identites.json/#{ipp-destination}/merge/#{ipp-source}</pre>
+        <pre><strong>POST</strong> api/fusions/#{ipp-destination}/#{ipp-source}</pre>
         <p class="request">Le paramètre <span class="label">obligatoire</span> <code>ipp-source</code> permet de cibler l'identité source : celle qui va fusionner et disparaitre.<br />
           Le paramètre <span class="label">obligatoire</span> <code>ipp-destination</code> permet de cibler l'identité destination : celle dans laquelle l'identité source va être fusionnée.</p>
         <p class="response">L'API retourne un code 204 ("No Content").</p> 
 
         <h2 id="suppression-identite">Suppression d'une identité</h2>
-        <pre><strong>DELETE</strong> api/identites.json/#{ipp}</pre>
+        <pre><strong>DELETE</strong> api/identites/#{ipp}</pre>
         <p class="request">Le paramètre <span class="label">obligatoire</span> <code>ipp</code> permet de cibler l'identité à supprimer.</p>
         <p class="response">L'API retourne un code 204 ("No Content").</p> 
       </div>
@@ -69,6 +69,7 @@
           <table>
             <tbody>
             <tr><td><a href="identites.html">api/identites</a></td></tr>
+            <tr><td><a href="fusions.html">api/fusions</a></td></tr>
             <tr><td><a href="sejours.html">api/sejours</a></td></tr>
             <tr><td><a href="mouvements.html">api/mouvements</a></td></tr>
             </tbody>
@@ -77,6 +78,7 @@
           <table>
             <tbody>
             <tr><td><a href="structure-identite.html">structure/identite</a></td></tr>
+            <tr><td><a href="structure-fusion.html">structure/fusion</a></td></tr>
             <tr><td><a href="structure-sejour.html">structure/sejour</a></td></tr>
             <tr><td><a href="structure-mouvement.html">structure/mouvement</a></td></tr>
             </tbody>
