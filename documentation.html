@@ -60,10 +60,6 @@
               <td class="views-field-body">Modifie l'identité identifiée par <code>:ipp</code>.</td>
             </tr>
             <tr>
-              <td class="views-field-title"><a href="identites.html#fusion-identites">POST api/fusions/:ipp-destination/:ipp-source</a></td>
-              <td class="views-field-body">Fusionne l'identité identifiée par <code>:ipp-source</code> dans l'identité identifiée par <code>:ipp-destination</code>.</td>
-            </tr>
-            <tr>
               <td class="views-field-title"><a href="identites.html#suppression-identite">DELETE api/identites/:ipp</a></td>
               <td class="views-field-body">Supprime l'identité identifiée par <code>:ipp</code>.</td>
             </tr>
@@ -82,23 +78,23 @@
           </thead>
           <tbody>
             <tr>
-              <td class="views-field-title"><a href="fusions.html#recuperation-liste-fusion">GET api/fusion</a></td>
+              <td class="views-field-title"><a href="fusions.html#recuperation-liste-fusion">GET api/fusions</a></td>
               <td class="views-field-body">Retourne la liste des fusions.</td>
             </tr>
             <tr>
-              <td class="views-field-title"><a href="fusion.html#recuperation-fusion">GET api/fusion/:ipf</a></td>
+              <td class="views-field-title"><a href="fusions.html#recuperation-fusion">GET api/fusions/:ipf</a></td>
               <td class="views-field-body">Retourne la fusion identifiée par <code>:ipf</code>.</td>
             </tr>
             <tr>
-              <td class="views-field-title"><a href="fusion.html#ajout-fusion">POST api/fusion</a></td>
+              <td class="views-field-title"><a href="fusions.html#ajout-fusion">POST api/fusions</a></td>
               <td class="views-field-body">Ajoute une fusion.</td>
             </tr>
             <tr>
-              <td class="views-field-title"><a href="fusion.html#modification-fusion">PUT api/fusion/:ipf</a></td>
+              <td class="views-field-title"><a href="fusions.html#modification-fusion">PUT api/fusions/:ipf</a></td>
               <td class="views-field-body">Modifie la fusion identifiée par <code>:ipf</code>.</td>
             </tr>
             <tr>
-              <td class="views-field-title"><a href="fusion.html#suppression-fusion">DELETE api/fusion/:ipf</a></td>
+              <td class="views-field-title"><a href="fusions.html#suppression-fusion">DELETE api/fusions/:ipf</a></td>
               <td class="views-field-body">Supprime la fusion identifiée par <code>:ipf</code>.</td>
             </tr>
           </tbody>
@@ -144,7 +140,7 @@
         <table class="views-table">
           <caption>
             <strong>Mouvements</strong>
-            <p>Informations en temps-réel sur les <a href="structure-mouvement.html" title="Structure des mouvements">mouvements</a>.</p>
+            <p>Informations en temps-réel sur les <a href="structure-mouvement.html" title="Structure des mouvements">mouvements</a> durant un <a href="structure-sejour.html" title="Structure des séjours">séjour</a>.</p>
           </caption>
           <thead>
             <tr>
@@ -162,20 +158,54 @@
               <td class="views-field-body">Retourne la liste des mouvements d'un séjour identifié par <code>:iep</code>.</td>
             </tr>
             <tr>
-              <td class="views-field-title"><a href="mouvements.html">GET api/mouvements/:id</a></td>
-              <td class="views-field-body">Retourne le mouvement identifié par <code>:id</code>.</td>
+              <td class="views-field-title"><a href="mouvements.html">GET api/mouvements/:ipm</a></td>
+              <td class="views-field-body">Retourne le mouvement identifié par <code>:ipm</code>.</td>
             </tr>
             <tr>
               <td class="views-field-title"><a href="mouvements.html">POST api/sejours/:iep/mouvements</a></td>
               <td class="views-field-body">Ajoute un mouvement au séjour identifié par <code>:iep</code>.</td>
             </tr>
             <tr>
-              <td class="views-field-title"><a href="mouvements.html">PUT api/mouvements/:id</a></td>
-              <td class="views-field-body">Modifie le mouvement identifié par <code>:id</code>.</td>
+              <td class="views-field-title"><a href="mouvements.html">PUT api/mouvements/:ipm</a></td>
+              <td class="views-field-body">Modifie le mouvement identifié par <code>:ipm</code>.</td>
             </tr>
             <tr>
-              <td class="views-field-title"><a href="mouvements.html">DELETE api/mouvements/:id</a></td>
-              <td class="views-field-body">Supprime le mouvement identifié par <code>:id</code>.</td>
+              <td class="views-field-title"><a href="mouvements.html">DELETE api/mouvements/:ipm</a></td>
+              <td class="views-field-body">Supprime le mouvement identifié par <code>:ipm</code>.</td>
+            </tr>
+          </tbody>
+        </table>
+        <table class="views-table">
+          <caption>
+            <strong>Permissions</strong>
+            <p>Informations en temps-réel sur les <a href="structure-permission.html" title="Structure des permissions">permissions</a> durant un <a href="structure-sejour.html" title="Structure des séjours">séjour</a>.</p>
+          </caption>
+          <thead>
+            <tr>
+              <th class="views-field-title">Resource</th>
+              <th class="views-field-body">Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="views-field-title"><a href="permissions.html">GET api/permissions</a></td>
+              <td class="views-field-body">Retourne la liste des permissions.</td>
+            </tr>
+            <tr>
+              <td class="views-field-title"><a href="permissions.html">GET api/sejours/:iep/permissions</a></td>
+              <td class="views-field-body">Retourne la liste des permissions d'un séjour identifié par <code>:iep</code>.</td>
+            </tr>
+            <tr>
+              <td class="views-field-title"><a href="permissions.html">GET api/permissions/:ipe</a></td>
+              <td class="views-field-body">Retourne le permission identifiée par <code>:ipe</code>.</td>
+            </tr>
+            <tr>
+              <td class="views-field-title"><a href="permissions.html">PUT api/permissions/:ipe</a></td>
+              <td class="views-field-body">Modifie le permission identifiée par <code>:ipe</code>.</td>
+            </tr>
+            <tr>
+              <td class="views-field-title"><a href="permissions.html">DELETE api/permissions/:ipe</a></td>
+              <td class="views-field-body">Supprime le permission identifiée par <code>:ipe</code>.</td>
             </tr>
           </tbody>
         </table>

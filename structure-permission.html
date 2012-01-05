@@ -19,27 +19,27 @@
   <div class="container">
     <div id="breadcrumbs">
       <div class="breadcrumb">
-        <a href="documentation.html">Documentation</a> → <a href="">Structure fusion</a>
+        <a href="documentation.html">Documentation</a> → <a href="">Structure permission</a>
       </div>
     </div><!-- end #breadcrumbs -->
     <div class="content row">
       <div class="span12">
-        <h1 id="title">Structure d'une fusion</h1>
+        <h1 id="title">Structure d'une permission</h1>
         <p>Liste des champs disponibles :
           <ul>
-            <li><code>ipf</code> <span class="label important">obligatoire</span> identifiant permanent de la fusion.</li>
-            <li><code>ipp_destination</code>  <span class="label important">obligatoire</span> identifiant unique de l'identité recevant la fusion.</li>
-            <li><code>ipp_source</code>  <span class="label important">obligatoire</span> identifiant unique de l'identité à fusionner.</li>
-            <li><code>date_fusion</code> <span class="label important">obligatoire</span> <span class="label">norme</span> aaaa-mm-jj hh:mm:ss</li>
+            <li><code>ipe</code> <span class="label important">obligatoire</span> identifiant permanent de la permission.</li>
+            <li><code>iep</code>  <span class="label important">obligatoire</span> identifiant unique du séjour pendant lequel a lieu la permission.</li>
+            <li><code>date_debut</code>  <span class="label important">obligatoire</span> date de début de la permission <span class="label">norme</span> aaaa-mm-jj hh:mm:ss</li>
+            <li><code>date_fin</code>  date de fin de la permission <span class="label">norme</span> aaaa-mm-jj hh:mm:ss</li>
           </ul>
         </p>
         <p>Exemple en JSON :</p>
         <pre class="highlight">
 {
-  ipf: "5489",
-  ipp_destination: "1106000987",
-  ipp_source: "1106000865",
-  date_mouvement: "2011-06-23 14:25:00"
+  ipe: "235",
+  iep: "0000311963",
+  date_debut: "2011-07-25 08:00:00"
+  date_fin: "2011-07-25 14:00:00"
 }</pre>
       </div>
       <div class="span5">

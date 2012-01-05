@@ -45,9 +45,10 @@
         <pre>curl -H 'Content-Type: application/json' http://url-api-pmsipilot</pre>
         <p>Pour simplifier l'utilisation de l'API, notemment pour pouvoir la tester directement depuis un navigateur web, les échanges seront effectués par défaut en <a href="http://fr.wikipedia.org/wiki/JavaScript_Object_Notation" title="JSON">JSON</a> même si ces headers ne sont pas spécifiés.</p>
 
-        <h2>Limitation</h2>
-        <p>L'utilisation de l'API PMSIpilot est limitée à 5000 appels / heure / utilisateur.<br />
+        <h2 id="limitation">Limitation</h2>
+        <p>L'utilisation de l'API PMSIpilot est limitée en nombre de requêtes / heure / utilisateur (paramétrable par client).<br />
           Le nombre total d'appels autorisé ainsi que le nombre restant d'appels possible sont visibles dans les headers personnalisés <a href="specification-reponses.html#ratelimit-limit">RateLimit-Limit</a> et <a href="specification-reponses.html#ratelimit-remaining">RateLimit-Remaining</a> de chaque réponse HTTP.</p>
+          <p><strong>Valeur par défaut</strong> : 5000 requêtes / heures / utilisateur.</p>
       </div>
       <div class="span5">
         <div class="block-api">
@@ -65,6 +66,7 @@
             <tr><td><a href="fusions.html">api/fusions</a></td></tr>
             <tr><td><a href="sejours.html">api/sejours</a></td></tr>
             <tr><td><a href="mouvements.html">api/mouvements</a></td></tr>
+            <tr><td><a href="permissions.html">api/permissions</a></td></tr>
             </tbody>
           </table>
           <h3>Structures</h3>
@@ -74,6 +76,7 @@
             <tr><td><a href="structure-fusion.html">structure/fusion</a></td></tr>
             <tr><td><a href="structure-sejour.html">structure/sejour</a></td></tr>
             <tr><td><a href="structure-mouvement.html">structure/mouvement</a></td></tr>
+            <tr><td><a href="structure-permission.html">structure/permission</a></td></tr>
             </tbody>
           </table>
         </div>
