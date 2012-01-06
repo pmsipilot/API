@@ -41,8 +41,8 @@
         <p class="response">L'API retourne un code 200 ("OK") et le <a href="structure-sejour.html">séjour</a> demandé.</p> 
         
         <h2 id="ajout-sejour">Ajout d'un séjour</h2>
-        <pre><strong>POST</strong> api/sejours</pre>
-        <p class="request">Un <a href="structure-sejour.html">séjour</a> doit être passé en paramètre.</p>
+        <pre><strong>POST</strong> api/identites/:ipp/sejours</pre>
+        <p class="request">Le paramètre <span class="label">obligatoire</span> <code>ipp</code> permet de cibler l'identité à laquelle on souhaite ajouter le séjour.<br />Un <a href="structure-sejour.html">séjour</a> doit être passé en paramètre.</p>
         <p class="response">L'API retourne un code 201 ("Created").</p> 
 
         <h2 id="modification-sejour">Modification d'un séjour</h2>
