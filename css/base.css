@@ -49,9 +49,9 @@ code, pre {
 
 .hero-unit
 {
-  background: url("../images/logo.png") 20px center #DDD no-repeat;
-  padding-left: 250px;
-  border-radius: 0 0 6px 6px;
+  background: url("../images/logo.png") 9px center #DDD no-repeat;
+  border-radius: 0 0 106px 106px;
+  text-align: center;
 }
 
 .hero-unit h1 {
@@ -65,43 +65,20 @@ code, pre {
 
 .features {
   width: 750px;
-  margin: 50px auto 30px;
+  margin: 40px auto 30px;
 }
 
 .features p {
-  margin: 0;
   font-size: 16px;
-  line-height: 33px;
-  padding-left: 50px;
-}
-
-.features p strong {
-  /*font-weight: normal;
-  color: #5a3;*/
-}
-
-.features p#identite {
-  background: url("../images/group.png") 0 center transparent no-repeat;
-}
-
-.features p#groupage {
-  background: url("../images/page_white_stack.png") 0 center transparent no-repeat;
-}
-
-.features p#qualifact {
-  background: url("../images/document_todo.png") 0 center transparent no-repeat;
-}
-
-.features p#valorisation {
-  background: url("../images/money_euro.png") 0 center transparent no-repeat;
+  line-height: 23px;
+  padding: 0 15px;
+  margin: 40px 0 0 0
 }
 
 .features p.special {
   background: #ddd;
-  line-height: 23px;
   border-radius: 6px;
   padding: 10px 15px;
-  margin: 50px 0 0 0
 }
 
 .features p.deduction {
@@ -113,11 +90,7 @@ code, pre {
 }
 
 .features a#documentation {
-  margin-right: 10px;
-}
-
-.features a#contact {
-  font-size: 18px;
+  margin: 40px 0 20px 250px;
 }
 
 .features a.large {
@@ -145,6 +118,14 @@ h2  {
   color: #822;
 }
 
+h2 strong {
+  background-color: #822;
+  color: #fff;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  padding: 0 4px;
+}
 /* The white background content wrapper */
 .content {
   background-color: #fff;
