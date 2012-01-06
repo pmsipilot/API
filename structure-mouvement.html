@@ -27,10 +27,9 @@
         <h1 id="title">Structure d'un mouvement</h1>
         <p>Liste des champs disponibles :
           <ul>
-            <li><code>ipm</code> <span class="label important">obligatoire</span> identifiant permanent du mouvement.</li>
             <li><code>iep</code>  <span class="label important">obligatoire</span> identifiant unique du séjour auquel appartient le mouvement.</li>
             <li><code>numero</code> <span class="label important">obligatoire</span> identifiant unique du mouvement au sein du séjour.</li>
-            <li><code>date_mouvement</code> <span class="label important">obligatoire</span> <span class="label">norme</span> aaaa-mm-jj hh:mm:ss</li>
+            <li><code>date_mouvement</code> <span class="label">norme</span> aaaa-mm-jj hh:mm:ss</li>
             <li><code>uf_hebergement</code></li>
             <li><code>uf_soins</code></li>
             <li><code>uf_responsablite_medicale</code></li>
@@ -43,7 +42,6 @@
         <p>Exemple en JSON :</p>
         <pre class="highlight">
 {
-  "ipm": "54875",
   "iep": "0000311963",
   "numero": "1",
   "date_mouvement": "2011-06-17 10:29:00",
