@@ -67,6 +67,7 @@
             </tr>
           </tbody>
         </table>
+
         <table class="views-table">
           <caption>
             <strong>Fusions</strong>
@@ -94,6 +95,7 @@
             </tr>
           </tbody>
         </table>
+
         <table class="views-table">
           <caption>
             <strong>Séjours</strong>
@@ -132,6 +134,7 @@
             </tr>
           </tbody>
         </table>
+
         <table class="views-table">
           <caption>
             <strong>Mouvements</strong>
@@ -170,6 +173,46 @@
             </tr>
           </tbody>
         </table>
+
+        <table class="views-table">
+          <caption>
+            <strong>Actes</strong>
+            <p>Informations en temps-réel sur les <a href="structure-acte.html" title="Structure des actes">actes</a> durant un <a href="structure-sejour.html" title="Structure des séjours">séjour</a>.</p>
+          </caption>
+          <thead>
+            <tr>
+              <th class="views-field-title">Resource</th>
+              <th class="views-field-body">Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="views-field-title"><a href="actes.html#recuperation-liste-actes">GET api/actes</a></td>
+              <td class="views-field-body">Retourne la liste des actes.</td>
+            </tr>
+            <tr>
+              <td class="views-field-title"><a href="actes.html#recuperation-liste-actes-sejour">GET api/sejours/:iep/actes</a></td>
+              <td class="views-field-body">Retourne la liste des actes d'un séjour identifié par <code>:iep</code>.</td>
+            </tr>
+            <tr>
+              <td class="views-field-title"><a href="actes.html#recuperation-acte">GET api/actes/:ipa</a></td>
+              <td class="views-field-body">Retourne l'acte identifié par <code>:ipa</code>.</td>
+            </tr>
+            <tr>
+              <td class="views-field-title"><a href="actes.html#ajout-acte">POST api/sejours/:iep/actes</a></td>
+              <td class="views-field-body">Ajoute un acte au séjour identifié par <code>:iep</code>.</td>
+            </tr>
+            <tr>
+              <td class="views-field-title"><a href="actes.html#modification-acte">PUT api/actes/:ipa</a></td>
+              <td class="views-field-body">Modifie l'acte identifié par <code>:ipa</code></code>.</td>
+            </tr>
+            <tr>
+              <td class="views-field-title"><a href="actes.html#suppression-acte">DELETE api/actes/:ipa</a></td>
+              <td class="views-field-body">Supprime l'acte identifié par <code>:ipa</code>.</td>
+            </tr>
+          </tbody>
+        </table>
+
         <table class="views-table">
           <caption>
             <strong>Permissions</strong>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <title>API PMSIpilot</title>
+  <meta charset="utf-8">
+  <script type="text/javascript" src="js/jquery-1.7.1.min.js"></script>
+  <script type="text/javascript" src="js/api.js"></script>
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/base.css">
+</head>
+<body>
+  <div class="topbar">
+    <div class="fill">
+      <div class="container">
+        <a class="brand" href="index.html">Présentation</a>
+        <a class="brand" href="documentation.html">Documentation</a>
+        <a class="brand" href="http://www.pmsipilot.com/fr/contact">Contact</a>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div id="breadcrumbs">
+      <div class="breadcrumb">
+        <a href="documentation.html">Documentation</a> → <a href="#">API Actes</a>
+      </div>
+    </div><!-- end #breadcrumbs -->
+    <div class="content row">
+      <div class="span12">
+        <h1 id="title">API actes</h1>
+        <h2 id="recuperation-liste-actes">Récupération de la liste des actes (tout séjours confondus)</h2>
+        <pre><strong>GET</strong> api/actes?token=#{token}</pre>
+        <p class="request">Si le paramètre <code>token</code> est spécifié, seuls les actes ajoutés ou modifiés depuis ce token seront retournés.</p>
+        <p class="response">L'API retourne un code 200 ("OK") et la liste des <a href="structure-acte.html">actes</a> triés par date de création (les plus anciens en premier).</p>
+
+        <h2 id="recuperation-liste-actes-sejour">Récupération de la liste des actes (d'un séjour)</h2>
+        <pre><strong>GET</strong> api/sejours/#{iep}/actes</pre>
+        <p class="request">Le paramètre <span class="label">obligatoire</span> <code>iep</code> permet de cibler le séjour dont on souhaite obtenir les actes.</p>
+        <p class="response">L'API retourne un code 200 ("OK") et la liste des <a href="structure-acte.html">actes</a> triés par date de création (les plus anciens en premier).</p>
+
+        <h2 id="recuperation-acte">Récupération d'un acte</h2>
+        <pre><strong>GET</strong> api/actes/#{ipa}</pre>
+        <p class="request">Le paramètre <span class="label">obligatoire</span> <code>ipa</code> permet de cibler l'acte à retourner.</p>
+        <p class="response">L'API retourne un code 200 ("OK") et l'<a href="structure-acte.html">acte</a> demandé.</p>
+        
+        <h2 id="ajout-acte">Ajout d'un acte</h2>
+        <pre><strong>POST</strong> api/sejours/:iep/actes</pre>
+        <p class="request">Le paramètre <span class="label">obligatoire</span> <code>iep</code> permet de cibler le séjour auquel on souhaite ajouter l'acte.<br />Un <a href="structure-acte.html">acte</a> doit être passé en paramètre.</p>
+        <p class="response">L'API retourne un code 201 ("Created").</p> 
+
+        <h2 id="modification-acte">Modification d'un acte</h2>
+        <pre><strong>PUT</strong> api/actes/#{ipa}</pre>
+        <p class="request">Le paramètre <span class="label">obligatoire</span> <code>ipa</code> permet de cibler l'acte à modifier.<br />Un <a href="structure-acte.html">acte</a> doit être passé en paramètre.</p>
+        <p class="response">L'API retourne un code 204 ("No Content").</p> 
+
+        <h2 id="suppression-acte">Suppression d'un acte</h2>
+        <pre><strong>DELETE</strong> api/actes/#{ipa}</pre>
+        <p class="request">Le paramètre <span class="label">obligatoire</span> <code>ipa</code> permet de cibler l'acte à supprimer.</p>
+        <p class="response">L'API retourne un code 204 ("No Content").</p> 
+      </div>
+      <div id="sidebar" class="span5"></div>
+    </div>
+  </div> <!-- /container -->
+  <footer>
+
+  </footer>
+  <script type="text/javascript">window.hijs = '.highlight';</script>
+  <script type="text/javascript" src="js/hijs.js"></script>
+</body>
+</html>
