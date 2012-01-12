@@ -30,11 +30,16 @@
         <p class="request">Si le paramètre <code>token</code> est spécifié, seules les permissions ajoutées ou modifiées depuis ce token seront retournées.</p>
         <p class="response">L'API retourne la liste des <a href="structure-permission.html">permissions</a> triées par date de création (les plus anciennes en premier).</p>
 
+        <h2 id="recuperation-permission-par-sejour">Récupération de la liste des permissions (d'un séjour)</h2>
+        <pre><strong>GET</strong> api/sejours/#{iep}/permissions</pre>
+        <p class="request">Le paramètre <span class="label">obligatoire</span> <code>iep</code> permet de cibler le séjour dont on souhaite obtenir les permissions.</p>
+        <p class="response">L'API retourne la liste des <a href="structure-permission.html">permissions</a> triées par date de création (les plus anciennes en premier).</p>
+
         <h2 id="recuperation-permission">Récupération d'une permission</h2>
         <pre><strong>GET</strong> api/permissions/#{ipe}</pre>
         <p class="request">Le paramètre <span class="label">obligatoire</span> <code>ipe</code> permet de cibler la permission à retourner.</p>
         <p class="response">L'API retourne un code 200 ("OK") et la <a href="structure-permission.html">permission</a> demandée.</p> 
-        
+
         <h2 id="ajout-permission">Ajout d'une permission</h2>
         <pre><strong>POST</strong> api/permissions</pre>
         <p class="request">Une <a href="structure-permission.html">permission</a> doit être passée en paramètre.</p>
