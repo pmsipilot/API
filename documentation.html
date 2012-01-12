@@ -176,8 +176,43 @@
 
         <table class="views-table">
           <caption>
+            <strong>Permissions</strong>
+            <p>Informations en temps-réel sur les <a href="structure-permission.html" title="Structure des permissions">permissions</a> effectuées durant un <a href="structure-sejour.html" title="Structure des séjours">séjour</a>.</p>
+          </caption>
+          <thead>
+            <tr>
+              <th class="views-field-title">Resource</th>
+              <th class="views-field-body">Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="views-field-title"><a href="permissions.html">GET api/permissions</a></td>
+              <td class="views-field-body">Retourne la liste des permissions.</td>
+            </tr>
+            <tr>
+              <td class="views-field-title"><a href="permissions.html">GET api/sejours/:iep/permissions</a></td>
+              <td class="views-field-body">Retourne la liste des permissions d'un séjour identifié par <code>:iep</code>.</td>
+            </tr>
+            <tr>
+              <td class="views-field-title"><a href="permissions.html">GET api/permissions/:ipe</a></td>
+              <td class="views-field-body">Retourne le permission identifiée par <code>:ipe</code>.</td>
+            </tr>
+            <tr>
+              <td class="views-field-title"><a href="permissions.html">PUT api/permissions/:ipe</a></td>
+              <td class="views-field-body">Modifie le permission identifiée par <code>:ipe</code>.</td>
+            </tr>
+            <tr>
+              <td class="views-field-title"><a href="permissions.html">DELETE api/permissions/:ipe</a></td>
+              <td class="views-field-body">Supprime le permission identifiée par <code>:ipe</code>.</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <table class="views-table">
+          <caption>
             <strong>Actes</strong>
-            <p>Informations en temps-réel sur les <a href="structure-acte.html" title="Structure des actes">actes</a> durant un <a href="structure-sejour.html" title="Structure des séjours">séjour</a>.</p>
+            <p>Informations en temps-réel sur les <a href="structure-acte.html" title="Structure des actes">actes</a> réalisés durant un <a href="structure-sejour.html" title="Structure des séjours">séjour</a>.</p>
           </caption>
           <thead>
             <tr>
@@ -212,41 +247,7 @@
             </tr>
           </tbody>
         </table>
-
-        <table class="views-table">
-          <caption>
-            <strong>Permissions</strong>
-            <p>Informations en temps-réel sur les <a href="structure-permission.html" title="Structure des permissions">permissions</a> durant un <a href="structure-sejour.html" title="Structure des séjours">séjour</a>.</p>
-          </caption>
-          <thead>
-            <tr>
-              <th class="views-field-title">Resource</th>
-              <th class="views-field-body">Description</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td class="views-field-title"><a href="permissions.html">GET api/permissions</a></td>
-              <td class="views-field-body">Retourne la liste des permissions.</td>
-            </tr>
-            <tr>
-              <td class="views-field-title"><a href="permissions.html">GET api/sejours/:iep/permissions</a></td>
-              <td class="views-field-body">Retourne la liste des permissions d'un séjour identifié par <code>:iep</code>.</td>
-            </tr>
-            <tr>
-              <td class="views-field-title"><a href="permissions.html">GET api/permissions/:ipe</a></td>
-              <td class="views-field-body">Retourne le permission identifiée par <code>:ipe</code>.</td>
-            </tr>
-            <tr>
-              <td class="views-field-title"><a href="permissions.html">PUT api/permissions/:ipe</a></td>
-              <td class="views-field-body">Modifie le permission identifiée par <code>:ipe</code>.</td>
-            </tr>
-            <tr>
-              <td class="views-field-title"><a href="permissions.html">DELETE api/permissions/:ipe</a></td>
-              <td class="views-field-body">Supprime le permission identifiée par <code>:ipe</code>.</td>
-            </tr>
-          </tbody>
-        </table>
+        
       </div>
     </div>
   </div> <!-- /container -->
