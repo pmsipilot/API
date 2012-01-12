@@ -21,27 +21,37 @@
   <div class="container">
     <div id="breadcrumbs">
       <div class="breadcrumb">
-        <a href="documentation.html">Documentation</a> → <a href="">Structure fusion</a>
+        <a href="documentation.html">Documentation</a> → <a href="#">Structure acte</a>
       </div>
     </div><!-- end #breadcrumbs -->
     <div class="content row">
       <div class="span12">
-        <h1 id="title">Structure d'une fusion</h1>
+        <h1 id="title">Structure d'un acte</h1>
         <p>Liste des champs disponibles :
           <ul>
-            <li><code>ipf</code> <span class="label important">obligatoire</span> identifiant permanent de la fusion.</li>
-            <li><code>ipp_destination</code>  <span class="label important">obligatoire</span> identifiant unique de l'identité recevant la fusion.</li>
-            <li><code>ipp_source</code>  <span class="label important">obligatoire</span> identifiant unique de l'identité à fusionner.</li>
-            <li><code>date_fusion</code> <span class="label important">obligatoire</span> <span class="label">norme</span> aaaa-mm-jj hh:mm:ss</li>
+            <li><code>iep</code> <span class="label important">obligatoire</span> identifiant unique du séjour auquel appartient le mouvement.</li>
+            <li><code>ipa</code> <span class="label important">obligatoire</span> identifiant permanent et unique de l'acte.</li>
+            <li><code>type</code> <span class="label important">obligatoire</span> <span class="label">norme</span> CCAM, CDARR ou NGAP</li>
+            <li><code>code</code> <span class="label important">obligatoire</span>
+            <li><code>date_realisation</code> <span class="label important">obligatoire</span> <span class="label">norme</span> aaaa-mm-jj hh:mm:ss</li>
+            <li><code>activite</code></li>
+            <li><code>phase</code></li>
+            <li><code>code_intervenant</code></li>
+            <li><code>numero_adeli</code></li>
           </ul>
         </p>
         <p>Exemple en JSON :</p>
         <pre class="highlight">
 {
-  "ipf": "5489",
-  "ipp_destination": "1106000987",
-  "ipp_source": "1106000865",
-  "date_fusion": "2011-06-23 14:25:00"
+  "iep": "0000311963",
+  "ipa": "16871",
+  "type": "CCAM",
+  "code": "LJMA002",
+  "date_realisation": "2012-01-11 12:21:13",
+  "activite": "1",
+  "phase": "0",
+  "code_intervenant": "22",
+  "numero_adeli": "984357124567897"
 }</pre>
       </div>
       <div id="sidebar" class="span5"></div>

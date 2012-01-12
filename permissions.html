@@ -3,6 +3,8 @@
 <head>
   <title>API PMSIpilot</title>
   <meta charset="utf-8">
+  <script type="text/javascript" src="js/jquery-1.7.1.min.js"></script>
+  <script type="text/javascript" src="js/api.js"></script>
   <link rel="stylesheet" href="css/bootstrap.min.css">
   <link rel="stylesheet" href="css/base.css">
 </head>
@@ -50,37 +52,7 @@
         <p class="request">Le paramètre <span class="label">obligatoire</span> <code>ipe</code> permet de cibler la permission à supprimer.</p>
         <p class="response">L'API retourne un code 204 ("No Content").</p> 
       </div>
-      <div class="span5">
-        <div class="block-api">
-          <h3>Spécifications</h3>
-          <table>
-            <tbody>
-            <tr><td><a href="specification-requetes.html">requêtes HTTP</a></td></tr>
-            <tr><td><a href="specification-reponses.html">réponses HTTP</a></td></tr>
-            </tbody>
-          </table>
-          <h3>API</h3>
-          <table>
-            <tbody>
-            <tr><td><a href="identites.html">api/identites</a></td></tr>
-            <tr><td><a href="fusions.html">api/fusions</a></td></tr>
-            <tr><td><a href="sejours.html">api/sejours</a></td></tr>
-            <tr><td><a href="mouvements.html">api/mouvements</a></td></tr>
-            <tr><td><a href="permissions.html">api/permissions</a></td></tr>
-            </tbody>
-          </table>
-          <h3>Structures</h3>
-          <table>
-            <tbody>
-            <tr><td><a href="structure-identite.html">structure/identite</a></td></tr>
-            <tr><td><a href="structure-fusion.html">structure/fusion</a></td></tr>
-            <tr><td><a href="structure-sejour.html">structure/sejour</a></td></tr>
-            <tr><td><a href="structure-mouvement.html">structure/mouvement</a></td></tr>
-            <tr><td><a href="structure-permission.html">structure/permission</a></td></tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
+      <div id="sidebar" class="span5"></div>
     </div>
   </div> <!-- /container -->
   <footer>
