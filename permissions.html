@@ -43,8 +43,8 @@
         <p class="response">L'API retourne un code 200 ("OK") et la <a href="structure-permission.html">permission</a> demandée.</p> 
 
         <h2 id="ajout-permission">Ajout d'une permission</h2>
-        <pre><strong>POST</strong> api/permissions</pre>
-        <p class="request">Une <a href="structure-permission.html">permission</a> doit être passée en paramètre.</p>
+        <pre><strong>POST</strong> api/sejours/#{iep}/permissions</pre>
+        <p class="request">Le paramètre <span class="label">obligatoire</span> <code>iep</code> permet de cibler le séjour dont on souhaite obtenir les permissions.<br/>Une <a href="structure-permission.html">permission</a> doit être passée en paramètre.</p>
         <p class="response">L'API retourne un code 201 ("Created").</p> 
 
         <h2 id="modification-permission">Modification d'une permission</h2>
