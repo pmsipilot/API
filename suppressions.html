@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <title>API PMSIpilot</title>
+  <meta charset="utf-8">
+  <script type="text/javascript" src="js/jquery-1.7.1.min.js"></script>
+  <script type="text/javascript" src="js/api.js"></script>
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/base.css">
+</head>
+<body>
+  <div class="topbar">
+    <div class="fill">
+      <div class="container">
+        <a class="brand" href="index.html">Présentation</a>
+        <a class="brand" href="documentation.html">Documentation</a>
+        <a class="brand" href="http://www.pmsipilot.com/fr/contact">Contact</a>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div id="breadcrumbs">
+      <div class="breadcrumb">
+        <a href="documentation.html">Documentation</a> → <a href="#">API suppressions</a>
+      </div>
+    </div><!-- end #breadcrumbs -->
+    <div class="content row">
+      <div class="span12">
+        <h1 id="title">API suppressions</h1>
+        <h2 id="recuperation-liste-suppression">Récupération de la liste des suppressions</h2>
+        <pre><strong>GET</strong> api/suppressions?token=#{token}</pre>
+        <p class="request">Si le paramètre <code>token</code> est spécifié, seules les suppressions ajoutées depuis ce token seront retournées.</p>
+        <p class="response">L'API retourne la liste des <a href="structure-suppression.html">suppressions</a> triées par date de création (les plus anciennes en premier).</p>
+      </div>
+      <div id="sidebar" class="span5"></div>
+    </div>
+  </div> <!-- /container -->
+  <footer>
+
+  </footer>
+  <script type="text/javascript">window.hijs = '.highlight';</script>
+  <script type="text/javascript" src="js/hijs.js"></script>
+</body>
+</html>
