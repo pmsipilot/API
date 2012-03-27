@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <title>API PMSIpilot</title>
+  <meta charset="utf-8">
+  <script type="text/javascript" src="js/jquery-1.7.1.min.js"></script>
+  <script type="text/javascript" src="js/api.js"></script>
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/base.css">
+</head>
+<body>
+  <div class="topbar">
+    <div class="fill">
+      <div class="container">
+        <a class="brand" href="index.html">Présentation</a>
+        <a class="brand" href="documentation.html">Documentation</a>
+        <a class="brand" href="http://www.pmsipilot.com/fr/contact">Contact</a>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div id="breadcrumbs">
+      <div class="breadcrumb">
+        <a href="documentation.html">Documentation</a> → <a href="">Exemples</a> → <a href="">Création d'un séjour type</a>
+      </div>
+    </div><!-- end #breadcrumbs -->
+    <div class="content row">
+      <div class="span12">
+        <h1 id="title">Création d'un séjour type</h1>
+        <p>Nous allons voir comment est géré le passage d'un patient type dans l'hôpital. L'ordre dans lequel les requêtes sont envoyées est important,
+          en effet si un séjour est ajouté sur une identité qui n'existe pas <strong>l'API renverra un code erreur et le séjour ne sera pas inséré</strong>.</p>
+        <h2>Création de l'identité</h2>
+        <p>D'abord nous allons créer l'identité, via une requête à l'API de type <strong>POST</strong>.</p>
+        <pre><strong>POST</strong> api/identites</pre>
+        <pre class="highlight">
+{
+  "ipp": "1106000987",
+  "nom_naissance": "DUPONT",
+  "prenom": "Jean",
+  "sexe": "H",
+  "date_naissance": "1972-09-30 12:05:00",
+  "adresse_1": "BP 525",
+  "commune": "AMBILLY",
+  "code_postal": "74100",
+  "pays": "100",
+  "telephone_domicile": "+33(0)499999999"
+}</pre>
+        <p>Si on veut par la suite rajouter une information qui manque, ou mettre à jour une information déja présente, on envoie une requête <strong>PUT</strong>.</p>
+        <pre><strong>PUT</strong> api/identites/1106000987</pre>
+        <pre class="highlight">
+{
+  "prenom": "Jean-Marc",
+  "adresse_2": "Rue de la République"
+}</pre>
+
+        <h2>Gestion de l'admission</h2>
+        <p>Pour l'admission d'un patient il faut ajouter un séjour <strong>et</strong> un mouvement dans l'API.</p>
+        <pre><strong>POST</strong> api/identites/1106000987/sejours</pre>
+        <pre class="highlight">
+{
+  "iep": "0000311963",
+  "ipp": "1106000987",
+  "type_admission": "R",
+  "date_admission": "2011-06-17 10:29:00",
+  "mode_entree": "8",
+  "provenance": "7"
+}</pre>
+        <pre><strong>POST</strong> api/sejours/0000311963/mouvements</pre>
+        <pre class="highlight">
+{
+  "iep": "0000311963",
+  "numero": "12A1"
+  "date_mouvement": "2011-06-17 10:29:00",
+  "uf_hebergement": "UF01",
+  "uf_responsabilite_medicale": "UF02",
+  "uf_soins": "UF01",
+  "mode_entree": "8",
+  "provenance": "7"
+}</pre>
+        <p>De la même manière qu'on modifie une identité, on peut modifier un séjour ou un mouvement. Quand c'est la date d'entrée, la date de sortie,
+          le mode d'entrée, le mode de sortie, la provenance ou la destination il faut bien penser à modifier le séjour <strong>et</strong> le mouvement le cas échéant.</p>
+        <pre><strong>PUT</strong> api/sejours/0000311963</pre>
+        <pre class="highlight">
+{
+  "date_admission": "2011-06-17 11:11:11",
+  "provenance": "8"
+}</pre>
+        <pre><strong>PUT</strong> api/sejours/0000311963/mouvements/12A1</pre>
+        <pre class="highlight">
+{
+  "date_mouvement": "2011-06-17 11:11:11",
+  "provenance": "8"
+}</pre>
+
+        <h2>Mutation dans l'établissement</h2>
+        <p>Il suffit de rajouter un nouveau mouvement avec un autre numéro.</p>
+        <pre><strong>POST</strong> api/sejours/0000311963/mouvements</pre>
+        <pre class="highlight">
+{
+  "iep": "0000311963",
+  "numero": "12A2"
+  "date_mouvement": "2011-06-29 17:02:00",
+  "uf_hebergement": "UF02",
+  "uf_responsabilite_medicale": "UF02",
+  "uf_soins": "UF02",
+  "mode_entree": "6",
+  "provenance": "2"
+}</pre>
+
+        <h2>Ajout d'un acte</h2>
+        <pre><strong>POST</strong> api/sejours/0000311963/actes</pre>
+        <pre class="highlight">
+{
+  "iep": "0000311963",
+  "ipa": "16871",
+  "type": "CCAM",
+  "code": "LJMA002",
+  "date_realisation": "2011-07-01 13:30:00",
+  "activite": "1",
+  "phase": "0",
+  "code_intervenant": "22"
+}</pre>
+
+        <h2>Sortie de l'établissement</h2>
+        <p>Comme pour l'admission, si la sortie est définitive, il faut modifier le séjour <strong>et</strong> ajouter un mouvement pour la sortie de l'établissement.
+          Pour une sortie temporaire (le dossier restant ouvert) on peut juste ajouter un mouvement.</p>
+        <pre><strong>PUT</strong> api/sejours/0000311963</pre>
+        <pre class="highlight">
+{
+  "date_sortie": "2011-07-08 02:30:00",
+  "mode_sortie": "9"
+}</pre>
+        <p>Le mouvement doit avoir un numéro différent des autres, et aussi signaler qu'il est une sortie d'établissement avec le champ <strong>sortie</strong>.</p>
+        <pre><strong>POST</strong> api/sejours/0000311963/mouvements</pre>
+        <pre class="highlight">
+{
+  "iep": "0000311963",
+  "numero": "12A3"
+  "date_mouvement": "2011-07-08 02:30:00",
+  "mode_sortie": "9",
+  "sortie": 1
+}</pre>
+      </div>
+      <div id="sidebar" class="span5"></div>
+  </div> <!-- /container -->
+  <footer>
+
+  </footer>
+  <script type="text/javascript">window.hijs = '.highlight';</script>
+  <script type="text/javascript" src="js/hijs.js"></script>
+</body>
+</html>
