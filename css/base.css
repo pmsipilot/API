@@ -239,7 +239,7 @@ pre.highlight .keyword { color: #01DBFF; }
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
   border-radius: 5px;
-  position: fixed;
+  position: relative;
   width: 260px;
 }
 
