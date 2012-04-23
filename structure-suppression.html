@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <title>API PMSIpilot</title>
+  <meta charset="utf-8">
+  <script type="text/javascript" src="js/jquery-1.7.1.min.js"></script>
+  <script type="text/javascript" src="js/api.js"></script>
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/base.css">
+</head>
+<body>
+  <div class="topbar">
+    <div class="fill">
+      <div class="container">
+        <a class="brand" href="index.html">Présentation</a>
+        <a class="brand" href="documentation.html">Documentation</a>
+        <a class="brand" href="http://www.pmsipilot.com/fr/contact">Contact</a>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div id="breadcrumbs">
+      <div class="breadcrumb">
+        <a href="documentation.html">Documentation</a> → <a href="">Structure suppression</a>
+      </div>
+    </div><!-- end #breadcrumbs -->
+    <div class="content row">
+      <div class="span12">
+        <h1 id="title">Structure d'une suppression</h1>
+        <p>Liste des champs disponibles :
+          <ul>
+            <li><code>resource_name</code> type de la resource supprimée.</li>
+            <li><code>resource</code> tableau au format JSON représentant la resource supprimée.</li>
+          </ul>
+        </p>
+        <p>Exemple en JSON :</p>
+        <pre class="highlight">
+{
+  "resource_name": "actes",
+  "resource":
+  {
+    "iep": "0000311963",
+    "ipa": "16871",
+    "type": "CCAM",
+    "code": "LJMA002",
+    "date_realisation": "2012-01-11 12:21:13",
+    "activite": "1",
+    "phase": "0",
+    "code_intervenant": "22",
+    "numero_adeli": "984357124567897"
+  }
+}</pre>
+      </div>
+      <div id="sidebar" class="span5"></div>
+    </div>
+  </div> <!-- /container -->
+  <footer>
+
+  </footer>
+  <script type="text/javascript">window.hijs = '.highlight';</script>
+  <script type="text/javascript" src="js/hijs.js"></script>
+</body>
+</html>

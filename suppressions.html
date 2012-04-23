@@ -21,15 +21,19 @@
   <div class="container">
     <div id="breadcrumbs">
       <div class="breadcrumb">
-        <a href="documentation.html">Documentation</a> → <a href="">Exemple d'utilisation</a>
+        <a href="documentation.html">Documentation</a> → <a href="#">API suppressions</a>
       </div>
     </div><!-- end #breadcrumbs -->
     <div class="content row">
       <div class="span12">
-        <h1 id="title">Exemple d'utilisation</h1>
-        <p>En cours de réalisation.</p>
+        <h1 id="title">API suppressions</h1>
+        <h2 id="recuperation-liste-suppression">Récupération de la liste des suppressions</h2>
+        <pre><strong>GET</strong> api/suppressions?token=#{token}</pre>
+        <p class="request">Si le paramètre <code>token</code> est spécifié, seules les suppressions ajoutées depuis ce token seront retournées.</p>
+        <p class="response">L'API retourne la liste des <a href="structure-suppression.html">suppressions</a> triées par date de création (les plus anciennes en premier).</p>
       </div>
       <div id="sidebar" class="span5"></div>
+    </div>
   </div> <!-- /container -->
   <footer>
 

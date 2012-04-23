@@ -31,6 +31,9 @@
       <p>
         Les API PMSIpilot utilisent le protocole <a href="http://fr.wikipedia.org/wiki/Hypertext_Transfer_Protocol" title="HTTP">HTTP</a> basé sur des <a title="Spécification des requêtes" href="specification-requetes.html">requêtes</a> et des <a title="Spécification des réponses" href="specification-reponses.html">réponses</a>.<br />
       </p>
+      <p>
+        Vous pouvez accéder à des <a href="exemple-sejour-type.html">exemples de scénarios</a>.
+      </p>
       <h2>Liste des API <strong>temps-réel</strong></h2>
       <div class="span16">
         <table class="views-table">
@@ -244,6 +247,25 @@
             <tr>
               <td class="views-field-title"><a href="actes.html#suppression-acte">DELETE api/actes/:ipa</a></td>
               <td class="views-field-body">Supprime l'acte identifié par <code>:ipa</code>.</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <table class="views-table">
+          <caption>
+            <strong>Suppressions</strong>
+            <p>Informations en temps-réel sur les suppressions de données.</p>
+          </caption>
+          <thead>
+            <tr>
+              <th class="views-field-title">Resource</th>
+              <th class="views-field-body">Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="views-field-title"><a href="suppressions.html#recuperation-liste-suppressions">GET api/suppressions</a></td>
+              <td class="views-field-body">Retourne la liste des éléments supprimés.</td>
             </tr>
           </tbody>
         </table>
